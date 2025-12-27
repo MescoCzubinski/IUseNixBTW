@@ -1,0 +1,55 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Fira Code", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #ffffff;
+}
+
+#workspaces,
+#clock,
+#pulseaudio,
+#bluetooth,
+#battery,
+#network,
+#cpu,
+#memory,
+#custom-lock {
+    background-color: #11111b;
+    padding: 0 12px;
+    margin: 4px 3px;
+    border-radius: 10px;
+    color: #cdd6f4;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #565f89;
+}
+
+#workspaces button.active {
+    color: #7aa2f7;
+}
+
+#bluetooth {
+    color: #89b4fa;
+}
+
+#battery {
+    color: #9ece6a;
+}
+
+#network {
+    color: #7aa2f7;
+    padding: 0 12px;
+}
+
+.modules-right > widget > label,
+.modules-right > widget > box {
+    margin-left: 0;
+}
