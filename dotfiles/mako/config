@@ -1,0 +1,24 @@
+sort=-time
+layer=overlay
+background-color=#282c34ee
+width=450
+height=150
+border-radius=10
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=0
+font="Fira Code" 12
+text-color=#abb2bf
+margin=12
+padding=12,20
+
+[urgency=low]
+border-color=#98c379
+
+[urgency=normal]
+border-color=#61afef
+
+[urgency=critical]
+border-color=#e06c75
+default-timeout=0

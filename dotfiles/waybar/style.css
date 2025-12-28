@@ -8,7 +8,7 @@
 
 window#waybar {
     background: transparent;
-    color: #ffffff;
+    color: #abb2bf;
 }
 
 #workspaces,
@@ -19,34 +19,45 @@ window#waybar {
 #network,
 #cpu,
 #memory,
+#backlight,
 #custom-lock {
-    background-color: #11111b;
+    background-color: #282c34;
     padding: 0 12px;
     margin: 4px 3px;
     border-radius: 10px;
-    color: #cdd6f4;
+    color: #abb2bf;
 }
 
 #workspaces button {
+    color: #4f5666;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
     padding: 0 5px;
-    color: #565f89;
 }
 
 #workspaces button.active {
-    color: #7aa2f7;
+    color: #61afef;
+    background: transparent;
+}
+
+#workspaces button:hover {
+    color: #4f5666;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #bluetooth {
-    color: #89b4fa;
+    color: #61afef;
 }
 
 #battery {
-    color: #9ece6a;
+    color: #98c379;
 }
 
 #network {
-    color: #7aa2f7;
-    padding: 0 12px;
+    color: #61afef;
 }
 
 .modules-right > widget > label,

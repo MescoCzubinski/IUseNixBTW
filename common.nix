@@ -1,15 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -54,7 +46,7 @@
   users.users.mieszko = {
     isNormalUser = true;
     description = "mieszko";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
   };
 
   programs.direnv = {
@@ -66,7 +58,7 @@
     enable = true;
     config = {
       user.name = "MescoCzubinski";
-      user.email = "mieszkoczubinski@gmail.com";      
+      user.email = "mieszkoczubinski@gmail.com";
       init.defaultBranch = "main";
     };
   };
@@ -85,63 +77,9 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    # code editors
-    code-cursor
-    vscode
-    
-    # dev tools
-    docker
-    yaak
-    git
-
-    # languages
-    nodejs
-    python3
-    go
-
-    # social
-    discord
-    signal-desktop
-    spotify
-
-    # utilities
-    onlyoffice-desktopeditors
-	  brave
-
-    # terminal
-    kitty
-
-    # desktop environment
-    waybar # task bar
-    wlogout # logout screen
-    superfile # file manager
-    hypridle # power management
-    hyprpaper # wallpaper manager
-    hyprlock # screen locker
-    rofi # application launcher
-    mako # notification daemon
-
-    # screenshots
-    grim
-    slurp
-    wl-clipboard
-    
-    neofetch # fancy terminal info
-
-    networkmanagerapplet # network manager
-    blueman # bluetooth manager
-    bibata-cursors # cursor theme
-  ];
-
-
-  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   virtualisation.docker.enable = true;
-
-  system.stateVersion = "25.11";
 }

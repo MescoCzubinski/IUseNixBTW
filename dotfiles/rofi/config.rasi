@@ -11,11 +11,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg:                          #11111b;
-    fg:                          #cdd6f4;
-    accent:                      #89b4fa;
-    button:                      #1e1e2e;
-    selected:                    #313244;
+    bg:                          #282c34;
+    fg:                          #abb2bf;
+    accent:                      #61afef;
+    button:                      #4f5666;
+    selected:                    #4f5666;
 
     background-color:            transparent;
     text-color:                  @fg;
@@ -27,10 +27,12 @@ window {
     y-offset:                    0px;
     spacing:                     0px;
     padding:                     20px;
-    margin:                      0px; 
+    margin:                      0px;
     color:                       @fg;
     background-color:            @bg;
     border-radius:               15px;
+    border-color:                @button;
+    border-width:                2px;
 }
 
 mainbox {
@@ -56,12 +58,12 @@ entry {
     background-color:            transparent;
     text-color:                  @fg;
     placeholder:                 "Search Apps...";
-    placeholder-color:           #585b70;
+    placeholder-color:           @fg;
     vertical-align:              0.5;
 }
 
 listview {
-    columns:                     1; 
+    columns:                     1;
     lines:                       8;
     cycle:                       true;
     dynamic:                     true;

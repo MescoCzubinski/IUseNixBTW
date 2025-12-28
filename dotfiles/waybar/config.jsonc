@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 36,
+    "height": 38,
     "margin-top": 4,
     "margin-left": 8,
     "margin-right": 8,
@@ -10,10 +10,11 @@
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": [
-        "pulseaudio", 
-        "bluetooth", 
-        "battery", 
-        "network", 
+        "pulseaudio",
+        "backlight",
+        "bluetooth",
+        "battery",
+        "network",
         "custom/lock"
     ],
 
@@ -35,13 +36,22 @@
     },
 
     "bluetooth": {
-        "format": " enabled",
-        "format-disabled": " disabled", 
+        "format": " Enabled",
+        "format-disabled": " Disabled",
         "format-connected": " {device_alias}",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "on-click": "blueman-manager"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰛨"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
     },
 
     "pulseaudio": {
@@ -52,14 +62,20 @@
     },
 
     "battery": {
-        "states": { "warning": 20, "critical": 10 },
-        "format": "{capacity}%",
-        "format-charging": "󱐋 {capacity}%"
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "network": {
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 ethernet",
+        "format-ethernet": "󰈀 Ethernet",
         "format-disconnected": "󰖪 ",
         "on-click": "nm-connection-editor"
     },
