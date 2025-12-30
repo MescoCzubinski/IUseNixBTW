@@ -1,64 +1,81 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "mode": "dock",
+    "ipc": true,
+    "exclusive": true,
+    "passthrough": false,
+    "height": 40,
     "margin-top": 4,
     "margin-left": 8,
     "margin-right": 8,
-    "spacing": 10,
+    "spacing": 12,
 
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
+    "modules-left": ["clock", "mpris"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "pulseaudio",
         "backlight",
         "bluetooth",
         "battery",
-        "network",
-        "custom/lock"
+        "network"
     ],
-
-    "hyprland/workspaces": {
-        "all-outputs": true,
-        "format": "{icon}",
-        "on-click": "",
-        "disable-scroll": true,
-        "format-icons": {
-            "active": "",
-            "default": ""
-        }
-    },
 
     "clock": {
         "interval": 1,
-        "format": "{:%d.%m.%Y - %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "format": "󰥔 <span>{:%H:%M}</span>"
+    },
+    
+    "mpris": {
+        "format": "{player_icon} <span>{artist} – {title}</span>",
+        "format-paused": "{status_icon} <span>{artist} – {title}</span>",
+        "player-icons": {
+            "default": "▶",
+            "spotify": ""
+        },
+        "status-icons": {
+            "paused": "󰏤"
+        },
+        "max-length": 35,
+        "ellipsis": ".."
+    },
+    
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "default": ""
+        }
     },
 
     "bluetooth": {
-        "format": " Enabled",
-        "format-disabled": " Disabled",
-        "format-connected": " {device_alias}",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "format": "󰂯 <span>Enabled</span>",
+        "format-disabled": "󰂯 <span>Disabled</span>",
+        "format-connected": "󰂯 <span>{device_alias}</span>",
+        "tooltip": false,
         "on-click": "blueman-manager"
     },
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰛨"],
+        "format": "󰛨 <span>{percent}%</span>",
+        "tooltip": false,
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
     },
 
     "pulseaudio": {
-        "format": "󰕾 {volume}%",
-        "format-muted": "󰖁 {volume}%",
+        "format": "󰕾 <span>{volume}%</span>",
+        "format-muted": "󰖁 <span>{volume}%</span>",
+        "tooltip": false,
         "on-click": "pavucontrol",
-        "scroll-step": 5
+        "scroll-step": 1
     },
 
     "battery": {
@@ -66,23 +83,19 @@
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format": "{icon} <span>{capacity}%</span>",
+        "format-charging": "󱐋 <span>{capacity}%</span>",
+        "format-plugged": " <span>{capacity}%</span>",
         "format-alt": "{time} {icon}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": false
     },
 
     "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀 Ethernet",
+        "format-wifi": "  <span>{essid}</span>",
+        "format-ethernet": "󰈀 <span>Ethernet</span>",
         "format-disconnected": "󰖪 ",
+        "tooltip": false,
         "on-click": "nm-connection-editor"
-    },
-
-    "custom/lock": {
-        "format": "",
-        "on-click": "hyprlock",
-        "tooltip": false
     }
 }

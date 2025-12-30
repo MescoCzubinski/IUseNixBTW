@@ -6,8 +6,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # code editors
-    code-cursor
     vscode
+    code-cursor
 
     # antigravity
     google-antigravity
@@ -25,11 +25,11 @@
     # social
     discord
     signal-desktop
-    spotify
 
     # utilities
     onlyoffice-desktopeditors
 	  brave
+    spotify
 
     # terminal
     kitty
@@ -37,7 +37,6 @@
     # desktop environment
     waybar # task bar
     wlogout # logout screen
-    superfile # file manager
     hypridle # power management
     hyprpaper # wallpaper manager
     hyprlock # screen locker
@@ -45,6 +44,9 @@
     mako # notification daemon
     brightnessctl # screen brightness
     cliphist # clipboard manager
+    playerctl # media controller
+    networkmanagerapplet # network manager
+    blueman # bluetooth manager
 
     # screenshots
     grim
@@ -52,9 +54,6 @@
     wl-clipboard
 
     neofetch # fancy terminal info
-
-    networkmanagerapplet # network manager
-    blueman # bluetooth manager
     bibata-cursors # cursor theme
   ];
 
