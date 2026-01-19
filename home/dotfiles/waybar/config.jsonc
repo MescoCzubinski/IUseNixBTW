@@ -1,0 +1,117 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "ipc": true,
+  "exclusive": true,
+  "passthrough": false,
+  "height": 40,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+  "spacing": 12,
+
+  "modules-left": ["clock", "mpris"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "pulseaudio",
+    "bluetooth",
+    "battery",
+    "network",
+    "custom/notification"
+  ],
+
+  "clock": {
+    "interval": 1,
+    "format": "󰥔 {:%H:%M}"
+  },
+
+  "mpris": {
+    "format": "{player_icon} {artist} – {title}",
+    "format-paused": "{status_icon} {artist} – {title}",
+    "tooltip": false,
+    "player-icons": {
+      "default": "▶",
+      "spotify": ""
+    },
+    "status-icons": {
+      "paused": "󰏤"
+    },
+    "max-length": 35,
+    "ellipsis": ".."
+  },
+
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "A",
+      "2": "B",
+      "3": "C",
+      "4": "D",
+      "5": "E",
+      "6": "F",
+      "7": "G",
+      "8": "H",
+      "9": "I"
+    }
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂯 {device_alias}",
+    "tooltip": false,
+    "on-click": "kitty --class float_kitty bluetui"
+  },
+
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰖁",
+    "tooltip": false,
+    "scroll-step": 1
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": false
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪 ",
+    "tooltip": false,
+    "on-click": "kitty --class float_kitty impala"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱏧",
+      "dnd-none": "󱈸",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󱏧",
+      "dnd-inhibited-none": "󱈸"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

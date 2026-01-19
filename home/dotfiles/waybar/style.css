@@ -1,0 +1,68 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Fira Code", "FiraCode Nerd Font", monospace;
+  font-weight: 500;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces,
+#mpris,
+#clock,
+#pulseaudio,
+#bluetooth,
+#battery,
+#network,
+#custom-notification {
+  background-color: rgba(40, 44, 52, 0.7);
+  padding: 0px 14px;
+  font-size: 13px;
+  border-radius: 999px;
+  color: #abb2bf;
+  margin: 4px 0px;
+}
+
+#workspaces {
+  padding: 0px;
+}
+#battery {
+  color: #98c379;
+}
+
+#workspaces button {
+  padding: 0px 6px;
+  margin: 3px;
+  font-size: 15px;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #abb2bf;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  padding: 0px 20px;
+  background-color: #abb2bf;
+  color: #282c34;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: #abb2bf;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+}
+
+#workspaces button.active:hover {
+  background-color: #abb2bf;
+  color: #282c34;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+}
