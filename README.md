@@ -35,3 +35,9 @@ sudo systemctl start wireguard-wg0.service
 
 sudo systemctl stop wireguard-wg0.service
 ```
+
+### Pendrive dir
+
+```bash
+cd /run/media/mieszko
+```
