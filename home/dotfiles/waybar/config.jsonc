@@ -5,113 +5,121 @@
   "ipc": true,
   "exclusive": true,
   "passthrough": false,
-  "height": 40,
+  "height": 0,
   "margin-top": 4,
-  "margin-left": 8,
-  "margin-right": 8,
-  "spacing": 12,
+  "margin-bottom": 4,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 15,
 
-  "modules-left": ["clock", "mpris"],
-  "modules-center": ["hyprland/workspaces"],
+  "modules-left": [
+    "custom/nixos",
+    "custom/terminal",
+    "custom/files",
+    "custom/browser",
+  ],
   "modules-right": [
+    "network",
     "pulseaudio",
     "bluetooth",
     "battery",
-    "network",
-    "custom/notification"
+    "custom/vpn",
+    "clock",
+    "custom/notification",
   ],
 
-  "clock": {
-    "interval": 1,
-    "format": "󰥔 {:%H:%M}"
-  },
-
-  "mpris": {
-    "format": "{player_icon} {artist} – {title}",
-    "format-paused": "{status_icon} {artist} – {title}",
+  "custom/nixos": {
+    "format": "",
     "tooltip": false,
-    "player-icons": {
-      "default": "▶",
-      "spotify": ""
-    },
-    "status-icons": {
-      "paused": "󰏤"
-    },
-    "max-length": 35,
-    "ellipsis": ".."
+    "on-click": "kitty --hold neofetch",
   },
 
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "format": "{icon}",
-    "on-click": "activate",
-    "format-icons": {
-      "1": "A",
-      "2": "B",
-      "3": "C",
-      "4": "D",
-      "5": "E",
-      "6": "F",
-      "7": "G",
-      "8": "H",
-      "9": "I"
-    }
+  "custom/terminal": {
+    "format": "Terminal",
+    "tooltip": false,
+    "on-click": "kitty",
+  },
+
+  "custom/files": {
+    "format": "Files",
+    "tooltip": false,
+    "on-click": "kitty yazi",
+  },
+
+  "custom/browser": {
+    "format": "Browser",
+    "tooltip": false,
+    "on-click": "kitty brave",
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid}",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "kitty impala",
   },
 
   "bluetooth": {
-    "format": "󰂯",
+    "format": "󰂲",
     "format-disabled": "󰂲",
-    "format-connected": "󰂯 {device_alias}",
-    "tooltip": false,
-    "on-click": "kitty --class float_kitty bluetui"
+    "format-off": "󰂲",
+    "format-connected": "󰂯",
+    "tooltip-format": "{device_alias}",
+    "tooltip-format-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "kitty bluetui",
   },
 
   "pulseaudio": {
-    "format": "󰕾 {volume}%",
+    "format": "󰕾",
     "format-muted": "󰖁",
     "tooltip": false,
-    "scroll-step": 1
   },
 
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 10
+      "critical": 10,
     },
-    "format": "{icon} {capacity}%",
+    "format": "󰁿 {capacity}%",
     "format-charging": "󱐋 {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "tooltip": false
+    "format-plugged": "󱐋 {capacity}%",
+    "tooltip": false,
   },
 
-  "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": "󰈀 ",
-    "format-disconnected": "󰖪 ",
+  "custom/vpn": {
+    "format": "{}",
+    "exec": "/home/mieszko/.config/scripts/vpn.sh",
+    "on-click": "/home/mieszko/.config/scripts/vpn.sh toggle",
+    "return-type": "json",
+    "interval": 3600,
+    "signal": 8,
     "tooltip": false,
-    "on-click": "kitty --class float_kitty impala"
+  },
+
+  "clock": {
+    "interval": 1,
+    "format": "{:%A, %d %b %H:%M}",
+    "tooltip": false,
   },
 
   "custom/notification": {
-    "tooltip": false,
     "format": "{icon}",
     "format-icons": {
       "notification": "󱅫",
       "none": "󰂚",
       "dnd-notification": "󱏧",
-      "dnd-none": "󱈸",
-      "inhibited-notification": "󱅫",
-      "inhibited-none": "󰂚",
-      "dnd-inhibited-notification": "󱏧",
-      "dnd-inhibited-none": "󱈸"
+      "dnd-none": "󱏧",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  }
+    "escape": true,
+    "tooltip": false,
+  },
 }

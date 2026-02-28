@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  virtualisation.docker.enable = true;
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -17,17 +19,14 @@
 
   environment.systemPackages = with pkgs; [
     # code editors
-    vscode
     code-cursor
+    antigravity
 
-    # antigravity
-    google-antigravity
-    google-chrome
+    neovim
 
     # dev tools
     docker
     yaak
-    cloudflared
 
     # languages
     nodejs

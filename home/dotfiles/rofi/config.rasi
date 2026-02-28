@@ -1,8 +1,7 @@
 configuration {
     modi:                        "drun";
     font:                        "FiraCode Nerd Font 11";
-    show-icons:                  true;
-    icon-theme:                  "Reversal-dark";
+    show-icons:                  false;
     display-drun:                "";
     drun-display-format:         "{name}";
     sidebar-mode:                false;
@@ -11,11 +10,11 @@ configuration {
 @theme "/dev/null"
 
 * {
-    bg:                          #282c34;
-    fg:                          #abb2bf;
-    accent:                      #61afef;
-    button:                      #4f5666;
-    selected:                    #4f5666;
+    bg:                          #131313AA;
+    fg:                          #f2f2f2;
+    accent:                      #A5ADCB;
+    border-col:                  #A6DA95;
+    selected-bg:                 #494D64;
 
     background-color:            transparent;
     text-color:                  @fg;
@@ -23,78 +22,51 @@ configuration {
 
 window {
     width:                       500px;
-    x-offset:                    0px;
-    y-offset:                    0px;
-    spacing:                     0px;
-    padding:                     20px;
-    margin:                      0px;
-    color:                       @fg;
     background-color:            @bg;
-    border-radius:               15px;
-    border-color:                @button;
-    border-width:                2px;
+    padding:                     30px;
+    border-radius:               20px;
 }
 
 mainbox {
-    spacing:                     15px;
+    spacing:                     0px;
     children:                    [ inputbar, listview ];
 }
 
 inputbar {
     spacing:                     10px;
-    padding:                     10px;
-    background-color:            @button;
-    border-radius:               10px;
-    children:                    [ prompt, entry ];
-}
-
-prompt {
-    background-color:            transparent;
-    text-color:                  @accent;
-    vertical-align:              0.5;
+    padding:                     10 20 10px;
+    border:                      3 3 0 3px;
+    border-color:                @border-col;
+    children:                    [ entry ];
 }
 
 entry {
-    background-color:            transparent;
-    text-color:                  @fg;
     placeholder:                 "Search Apps...";
-    placeholder-color:           @fg;
-    vertical-align:              0.5;
+    placeholder-color:           #5B6078;
 }
 
 listview {
     columns:                     1;
     lines:                       8;
+    padding:                     0 10px;
+    spacing:                     2px;
     cycle:                       true;
     dynamic:                     true;
     layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    spacing:                     5px;
+    border:                      0 3 3 3px;
+    border-color:                @border-col;
 }
 
 element {
-    spacing:                     10px;
-    margin:                      0px;
-    padding:                     8px;
-    border-radius:               10px;
-    background-color:            transparent;
-    text-color:                  @fg;
+    padding:                     3px 10px;
 }
 
 element selected {
-    background-color:            @selected;
+    background-color:            @selected-bg;
     text-color:                  @accent;
-}
-
-element-icon {
-    size:                        32px;
-    background-color:            transparent;
 }
 
 element-text {
     vertical-align:              0.5;
-    background-color:            transparent;
     text-color:                  inherit;
 }

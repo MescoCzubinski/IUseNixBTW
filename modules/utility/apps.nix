@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     discord
     signal-desktop
-    onlyoffice-desktopeditors
-	  brave
     spotify
+    obsidian
+    brave
+    onlyoffice-desktopeditors
   ];
 }

@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    antigravity-nix.url = "github:jacopone/antigravity-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,6 +14,13 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/laptop/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };

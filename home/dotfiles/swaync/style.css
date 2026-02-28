@@ -1,0 +1,224 @@
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 11pt;
+}
+
+.control-center {
+  background: rgba(19, 19, 19, 0.67);
+  border-radius: 0;
+  border-left: 3px solid #A6DA95;
+  padding: 20px;
+}
+
+.notification-background {
+  border-radius: 0;
+}
+
+.control-center .notification-row .notification-background {
+  background: rgba(19, 19, 19, 0.67);
+  border: 3px solid #A6DA95;
+  border-radius: 0;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.control-center .notification-row .notification-background:hover {
+  background: rgba(73, 77, 100, 0.8);
+}
+
+.control-center .notification-row .notification {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.notification {
+  background: rgba(19, 19, 19, 0.67);
+  border: 3px solid #a6da95;
+  border-radius: 0;
+  padding: 15px;
+  margin: 8px;
+}
+
+.notification.low {
+  border-color: #8bd5ca;
+}
+
+.notification.normal {
+  border-color: #a6da95;
+}
+
+.notification.critical {
+  border-color: #ed8796;
+  background: rgba(237, 135, 150, 0.15);
+}
+
+.notification:hover {
+  background: rgba(73, 77, 100, 0.8);
+}
+
+.notification-content {
+  color: #f2f2f2;
+  padding: 5px;
+}
+
+.notification-default-action {
+  background: transparent;
+}
+
+.notification-default-action:hover {
+  background: rgba(73, 77, 100, 0.5);
+}
+
+.summary {
+  color: #a5adcb;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-bottom: 3px;
+}
+
+.time {
+  color: #5b6078;
+  font-size: 9pt;
+  margin-left: 5px;
+}
+
+.body {
+  color: #f2f2f2;
+  margin-top: 5px;
+}
+
+.body-image {
+  border-radius: 12px;
+  margin: 5px 0;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  color: #5b6078;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: transparent;
+}
+
+.widget-title {
+  color: #a5adcb;
+  font-size: 13pt;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.widget-title > button {
+  background: rgba(73, 77, 100, 0.8);
+  color: #a5adcb;
+  border: 2px solid #a6da95;
+  border-radius: 0;
+  padding: 5px 15px;
+}
+
+.widget-title > button:hover {
+  background: rgba(138, 173, 244, 0.3);
+  color: #8aadf4;
+}
+
+.widget-dnd {
+  background: rgba(19, 19, 19, 0.67);
+  border: 3px solid #a6da95;
+  border-radius: 0;
+  padding: 15px;
+  margin: 8px 0;
+}
+
+.widget-dnd > label {
+  color: #f2f2f2;
+}
+
+.widget-dnd > switch {
+  background: rgba(73, 77, 100, 0.8);
+  border: 2px solid #a6da95;
+  border-radius: 0;
+  min-width: 40px;
+  min-height: 20px;
+}
+
+.widget-dnd > switch:checked {
+  background: #a6da95;
+}
+
+.widget-dnd > switch slider {
+  background: #a5adcb;
+  border-radius: 0;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.widget-mpris {
+  background: rgba(19, 19, 19, 0.67);
+  border: 3px solid #a6da95;
+  border-radius: 0;
+  padding: 15px;
+  margin: 8px 0;
+}
+
+.widget-mpris-player {
+  background: transparent;
+  padding: 10px;
+}
+
+.widget-mpris > box > button {
+  background: rgba(73, 77, 100, 0.8);
+  color: #a5adcb;
+  border: 2px solid #a6da95;
+  border-radius: 0;
+  padding: 8px;
+  margin: 2px;
+}
+
+.widget-mpris > box > button:hover {
+  background: rgba(138, 173, 244, 0.3);
+  color: #8aadf4;
+}
+
+.widget-inhibitors {
+  background: rgba(19, 19, 19, 0.67);
+  border: 3px solid #a6da95;
+  border-radius: 0;
+  padding: 15px;
+  margin: 8px 0;
+}
+
+.widget-inhibitors > button {
+  background: rgba(73, 77, 100, 0.8);
+  color: #a5adcb;
+  border: 2px solid #a6da95;
+  border-radius: 0;
+  padding: 5px 15px;
+}
+
+.widget-inhibitors > button:hover {
+  background: rgba(138, 173, 244, 0.3);
+  color: #8aadf4;
+}
+
+.close-button {
+  background: rgba(237, 135, 150, 0.8);
+  color: #f2f2f2;
+  border: 2px solid #ed8796;
+  border-radius: 15px;
+  padding: 2px 8px;
+}
+
+.close-button:hover {
+  background: #ed8796;
+}
