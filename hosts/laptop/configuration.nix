@@ -12,7 +12,7 @@
     ../../modules/utility/battery.nix
     ../../modules/utility/logitech.nix
     ../../modules/server/cloudflare.nix
-    ../../modules/server/wireguard.nix
+    ../../modules/server/laptop_wireguard.nix
     ../../modules/dev/dev.nix
   ];
 

@@ -37,3 +37,12 @@ systemctl status wireguard-wg0.service
 ```bash
 cd /run/media/mieszko
 ```
+
+### Secrets localization
+
+- wireguard VPN keys are in `/var/wireguard/`,
+- samba (NAS auto login) password file is in `/var/secret/smb-secrets`
+
+  username=server
+  password=
+  domain=WORKGROUP

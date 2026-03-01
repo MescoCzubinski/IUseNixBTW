@@ -6,23 +6,33 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/default.nix
-    ../../modules/desktop.nix
-    ../../modules/utilities.nix
-    ../../modules/dev.nix
-    ../../modules/nvidia.nix
-    ../../modules/steam.nix
-    ../../modules/heroic.nix
-    ../../modules/logitech.nix
+    ../../modules/common.nix
+    ../../modules/utility/desktop.nix
+    ../../modules/utility/nvidia.nix
+    ../../modules/utility/apps.nix
+    ../../modules/utility/battery.nix
+    ../../modules/utility/logitech.nix
+    ../../modules/server/cloudflare.nix
+    ../../modules/server/samba.nix
+    ../../modules/server/desktop_wireguard.nix
+    ../../modules/dev/dev.nix
+    ../../modules/games/heroic.nix
+    ../../modules/games/steam.nix
   ];
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs; };
+
     users.mieszko = {
       imports = [
-        ../../home
+        ../../home/home.nix
+        ../../modules/dev/home_vscode.nix
+        ../../modules/server/home_wireguard.nix
+        ../../modules/server/home_cloudflare.nix
+        ../../modules/utility/home_apps.nix
       ];
     };
   };
