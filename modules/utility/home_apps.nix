@@ -13,7 +13,7 @@
       terminal = false;
     };
     "code" = {
-      name = "VSCode";
+      name = "VS Code";
       exec = "code";
       terminal = false;
     };

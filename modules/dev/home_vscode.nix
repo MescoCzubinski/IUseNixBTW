@@ -50,6 +50,8 @@
 
       # terminal
       "terminal.integrated.enableMultiLinePasteWarning" = "never";
+      "terminal.integrated.fontFamily" = "'FiraCode Nerd Font'";
+      "terminal.integrated.fontSize" = 13;
     };
   };
 }

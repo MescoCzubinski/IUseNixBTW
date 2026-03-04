@@ -69,7 +69,7 @@
   users.users.mieszko = {
     isNormalUser = true;
     description = "mieszko";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users" ];
   };
 
   security.sudo.extraRules = [{
@@ -102,6 +102,7 @@
 
   networking.wireless.iwd.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
+  networking.networkmanager.unmanaged = [ "wg0" ];
 
   hardware.bluetooth = {
     enable = true;
@@ -118,14 +119,17 @@
   };
 
   environment.shellAliases = {
-    sl = "ls";
-    la = "ls -a";
+    "sl" = "ls";
+    "la" = "ls -a";
     "dc" = "cd";
+    "c" = "cd";
 
-    nix-laptop = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#laptop)";
-    nix-desktop = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#desktop)";
-    nix-use = "nix-shell -p";
-    nix-clean = "sudo nix-collect-garbage -d";
+    "nas" = "cd /home/mieszko/NAS && ls";
+    "git-pull" = "git fetch && git pull";
+    "nix-laptop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#laptop)";
+    "nix-desktop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#desktop)";
+    "nix-use" = "nix-shell -p";
+    "nix-clean" = "sudo nix-collect-garbage -d";
   };
 
   nixpkgs.config.allowUnfree = true;

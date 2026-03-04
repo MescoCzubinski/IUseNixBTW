@@ -6,14 +6,14 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/common.nix
-    ../../modules/utility/desktop.nix
-    ../../modules/utility/apps.nix
-    ../../modules/utility/battery.nix
-    ../../modules/utility/logitech.nix
-    ../../modules/server/cloudflare.nix
-    ../../modules/server/laptop_wireguard.nix
-    ../../modules/dev/dev.nix
+    ../../modules/common.nix # common file with main settings
+    ../../modules/utility/battery.nix # batsignal - only for laptop
+    ../../modules/utility/desktop.nix # desktop enviroment (Hyperland)
+    ../../modules/utility/apps.nix # discord, spotify, browser, only office, etc.
+    ../../modules/dev/dev.nix # cursor, antigravity, tools, languages
+    ../../modules/server/laptop_wireguard.nix # wireguard client
+    ../../modules/server/syncthing.nix # mount NAS
+    ../../modules/utility/logitech.nix # in case of plugin to dock station
   ];
 
   home-manager = {
@@ -24,10 +24,12 @@
 
     users.mieszko = {
       imports = [
-        ../../home/home.nix
-        ../../modules/dev/home_vscode.nix
-        ../../modules/server/home_wireguard.nix
-        ../../modules/utility/home_apps.nix
+        ../../home/home.nix # dotfiles, cursor, etc.
+        ../../modules/dev/home_vscode.nix # vscode settings
+        ../../modules/server/home_wireguard.nix # wireguard switch logic
+        ../../modules/server/home_cloudflare.nix # cloudflare config file
+        ../../modules/utility/home_apps.nix # rename apps
+        ../../modules/utility/home_folders.nix # home folders
       ];
     };
   };

@@ -42,7 +42,3 @@ cd /run/media/mieszko
 
 - wireguard VPN keys are in `/var/wireguard/`,
 - samba (NAS auto login) password file is in `/var/secret/smb-secrets`
-
-  username=server
-  password=
-  domain=WORKGROUP
