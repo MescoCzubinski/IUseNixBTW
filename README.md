@@ -8,7 +8,7 @@ This repository contains my system-wide NixOS configuration and my user-specific
 sudo nixos-rebuild switch --flake .#{HOST_NAME}
 ```
 
-Replace `#{HOST_NAME}` with your actual host name
+Replace `{HOST_NAME}` with your actual host name
 
 ### Update
 
@@ -38,7 +38,10 @@ systemctl status wireguard-wg0.service
 cd /run/media/mieszko
 ```
 
+### Syncthing dashboard
+
+[click](http://localhost:8384)
+
 ### Secrets localization
 
 - wireguard VPN keys are in `/var/wireguard/`,
-- samba (NAS auto login) password file is in `/var/secret/smb-secrets`

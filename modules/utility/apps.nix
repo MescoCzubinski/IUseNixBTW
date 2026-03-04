@@ -3,10 +3,10 @@
 {
   environment.systemPackages = with pkgs; [
     discord
-    signal-desktop
     spotify
     obsidian
     brave
+    signal-desktop
     onlyoffice-desktopeditors
   ];
 }

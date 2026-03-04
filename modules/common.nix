@@ -123,12 +123,16 @@
     "la" = "ls -a";
     "dc" = "cd";
     "c" = "cd";
+    "cd.." = "cd ..";
 
     "nas" = "cd /home/mieszko/NAS && ls";
     "git-pull" = "git fetch && git pull";
+
     "nix-laptop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#laptop)";
     "nix-desktop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#desktop)";
     "nix-use" = "nix-shell -p";
+    "nix-update-laptop" = "cd ~/NixOS && sudo nix flake update && sudo nixos-rebuild switch --flake .#laptop";
+    "nix-update-desktop" = "cd ~/NixOS && sudo nix flake update && sudo nixos-rebuild switch --flake .#desktop";
     "nix-clean" = "sudo nix-collect-garbage -d";
   };
 
