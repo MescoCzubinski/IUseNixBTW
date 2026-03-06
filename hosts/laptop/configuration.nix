@@ -10,8 +10,8 @@
     ../../modules/utility/battery.nix # batsignal - only for laptop
     ../../modules/utility/desktop.nix # desktop enviroment (Hyperland)
     ../../modules/utility/apps.nix # discord, spotify, browser, only office, etc.
-    ../../modules/dev/dev.nix # cursor, antigravity, tools, languages
-    ../../modules/server/laptop_wireguard.nix # wireguard client
+    ../../modules/dev/dev.nix # cursor, tools, languages
+    ../../modules/server/wireguard.nix # wireguard client
     ../../modules/server/syncthing.nix # mount NAS
     ../../modules/utility/logitech.nix # in case of plugin to dock station
   ];
@@ -26,6 +26,7 @@
       imports = [
         ../../home/home.nix # dotfiles, cursor, etc.
         ../../modules/dev/home_vscode.nix # vscode settings
+        ../../modules/dev/home_antigravity.nix # antigravity settings
         ../../modules/server/home_wireguard.nix # wireguard switch logic
         ../../modules/server/home_cloudflare.nix # cloudflare config file
         ../../modules/utility/home_apps.nix # rename apps

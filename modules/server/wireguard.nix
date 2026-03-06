@@ -12,7 +12,7 @@
 
   networking.wireguard.interfaces = {
     wg0 = {
-      ips = [ "10.0.0.3/24" ];
+      ips = [ "10.0.0.2/24" ];
       mtu = 1380;
       privateKeyFile = "/var/wireguard/privatekey";
 
@@ -20,7 +20,7 @@
         {
           publicKey = "jJeab15xx4nWj+1b/mgs+WInhPJRKJbC/T73PBdBDU4=";
           allowedIPs = [ "10.0.0.1/32" "10.0.0.0/24" ];
-          endpoint = "178.43.115.113:51820";
+          endpoint = "vpn.czubinski.dev:51820";
           persistentKeepalive = 25;
         }
       ];

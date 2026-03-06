@@ -20,8 +20,6 @@
   environment.systemPackages = with pkgs; [
     # code editors
     code-cursor
-    antigravity
-
     neovim
 
     # dev tools

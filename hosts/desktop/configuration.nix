@@ -12,7 +12,7 @@
     ../../modules/utility/apps.nix # discord, spotify, browser, only office, etc.
     ../../modules/dev/dev.nix # cursor, antigravity, tools, languages
     ../../modules/utility/logitech.nix # logitech drivers
-    ../../modules/server/desktop_wireguard.nix # wireguard client
+    ../../modules/server/wireguard.nix # wireguard client
     ../../modules/server/syncthing.nix # mount NAS
     ../../modules/games/steam.nix # Steam Launcher
     ../../modules/games/heroic.nix # Epic Games Launcher

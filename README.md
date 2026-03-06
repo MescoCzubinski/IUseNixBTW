@@ -19,17 +19,18 @@ sudo nix flake update
 ### WireGuard Configuration
 
 ```bash
-*VPN start*
-sudo systemctl start wireguard-wg0.service
-
-*VPN stop*
-sudo systemctl stop wireguard-wg0.service
-
-*VPN is active*
-systemctl is-active wireguard-wg0.service
-
 *VPN status*
 systemctl status wireguard-wg0.service
+```
+
+### Cloudflare dyndns (on server)
+
+```bash
+*Status*
+systemctl status cloudflare-dyndns.service
+
+*state of connection*
+sudo wg show
 ```
 
 ### Pendrive dir
