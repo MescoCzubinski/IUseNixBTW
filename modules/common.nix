@@ -72,20 +72,6 @@
     extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users" ];
   };
 
-  security.sudo.extraRules = [{
-    users = [ "mieszko" ];
-    commands = [
-      {
-        command = "/run/current-system/sw/bin/systemctl start wireguard-wg0.service";
-        options = [ "NOPASSWD" ];
-      }
-      {
-        command = "/run/current-system/sw/bin/systemctl stop wireguard-wg0.service";
-        options = [ "NOPASSWD" ];
-      }
-    ];
-  }];
-
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
@@ -125,15 +111,17 @@
     "c" = "cd";
     "cd.." = "cd ..";
 
-    "nas" = "cd /home/mieszko/NAS && ls";
     "git-pull" = "git fetch && git pull";
+    "git-commit" = "git add . && git commit -m";
 
+    "nix-use" = "nix-shell -p";
+    "nix-clean" = "sudo nix-collect-garbage -d";
     "nix-laptop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#laptop)";
     "nix-desktop" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#desktop)";
-    "nix-use" = "nix-shell -p";
+    "nix-server" = "(cd ~/NixOS && git add . && sudo nixos-rebuild switch --flake .#server)";
     "nix-update-laptop" = "cd ~/NixOS && sudo nix flake update && sudo nixos-rebuild switch --flake .#laptop";
     "nix-update-desktop" = "cd ~/NixOS && sudo nix flake update && sudo nixos-rebuild switch --flake .#desktop";
-    "nix-clean" = "sudo nix-collect-garbage -d";
+    "nix-update-server" = "cd ~/NixOS && sudo nix flake update && sudo nixos-rebuild switch --flake .#server";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -149,7 +137,7 @@
     usbutils # USB utils
 
     # theme & style
-    neofetch # fancy terminal info
+    fastfetch # fancy terminal info
     bibata-cursors # cursor theme
   ];
 

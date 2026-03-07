@@ -1,6 +1,20 @@
 { pkgs, ... }:
 
 {
+  security.sudo.extraRules = [{
+    users = [ "mieszko" ];
+    commands = [
+      {
+        command = "/run/current-system/sw/bin/systemctl start wireguard-wg0.service";
+        options = [ "NOPASSWD" ];
+      }
+      {
+        command = "/run/current-system/sw/bin/systemctl stop wireguard-wg0.service";
+        options = [ "NOPASSWD" ];
+      }
+    ];
+  }];
+
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.rp_filter" = 0;
     "net.ipv4.conf.wg0.rp_filter" = 0;

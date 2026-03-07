@@ -12,7 +12,7 @@
     ".config/hypr/hyprpaper.conf".source = ./dotfiles/hypr/hyprpaper.conf;
     ".config/hypr/wallpaper.png".source = ./dotfiles/hypr/wallpaper.png;
     ".config/kitty".source = ./dotfiles/kitty;
-    ".config/neofetch".source = ./dotfiles/neofetch;
+    ".config/fastfetch".source = ./dotfiles/fastfetch;
     ".config/rofi".source = ./dotfiles/rofi;
     ".config/swaync".source = ./dotfiles/swaync;
     ".config/waybar".source = ./dotfiles/waybar;

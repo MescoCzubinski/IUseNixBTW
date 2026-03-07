@@ -21,6 +21,9 @@ sudo nix flake update
 ```bash
 *VPN status*
 systemctl status wireguard-wg0.service
+
+*state of connection*
+sudo wg show
 ```
 
 ### Cloudflare dyndns (on server)
@@ -28,9 +31,6 @@ systemctl status wireguard-wg0.service
 ```bash
 *Status*
 systemctl status cloudflare-dyndns.service
-
-*state of connection*
-sudo wg show
 ```
 
 ### Pendrive dir
@@ -41,8 +41,9 @@ cd /run/media/mieszko
 
 ### Syncthing dashboard
 
-[click](http://localhost:8384)
+[[http://localhost:8384](http://localhost:8384)]
 
 ### Secrets localization
 
+- GitHub ssh keys are in `/.ssh/`,
 - wireguard VPN keys are in `/var/wireguard/`,
