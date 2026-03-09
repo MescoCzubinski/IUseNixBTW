@@ -21,6 +21,7 @@
     # code editors
     code-cursor
     neovim
+    jetbrains.idea
 
     # dev tools
     docker

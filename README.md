@@ -2,6 +2,10 @@
 
 This repository contains my system-wide NixOS configuration and my user-specific dotfiles.
 
+### Nix Packkages
+
+[https://search.nixos.org](https://search.nixos.org/packages?channel=25.11&query=)
+
 ### Rebuild
 
 ```bash
@@ -41,7 +45,7 @@ cd /run/media/mieszko
 
 ### Syncthing dashboard
 
-[[http://localhost:8384](http://localhost:8384)]
+[http://localhost:8384](http://localhost:8384)
 
 ### Secrets localization
 
