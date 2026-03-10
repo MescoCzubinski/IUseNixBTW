@@ -44,6 +44,9 @@
   # permission management
   security.polkit.enable = true;
 
+  services.dbus.enable = true;
+  services.upower.enable = true;
+
   # file system packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [

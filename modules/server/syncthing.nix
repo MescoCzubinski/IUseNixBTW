@@ -33,15 +33,31 @@
           id = "QLMUBML-NJUEYE4-GTHVI56-QTQQXKC-GDXLJ64-X2JFNR2-KU6O6CA-TVCJSAD"; # myLaptop
           addresses = [ "tcp://10.0.0.2:22000" ];
         };
+        "myPhone" = {
+          id = "J22COXJ-OIFALUG-ZQEJIHV-RALME62-QRPFDTW-GW35ZBK-W23T3L4-LUJSJAG"; # myPhone
+          addresses = [ "tcp://10.0.0.4:22000" ];
+        }
       };
       folders = {
         "SecondBrain" = {
           path = "/mnt/nas/SecondBrain";
-          devices = [ "myDesktop" "myLaptop" ];
+          devices = [ "myDesktop" "myLaptop" "myPhone" ];
+          type = "sendreceive";
         };
         "Pictures" = {
           path = "/mnt/nas/Pictures";
           devices = [ "myDesktop" "myLaptop" ];
+          type = "sendreceive";
+        };
+        "Memes" = {
+          path = "/mnt/nas/Pictures/Memes";
+          devices = [ "myPhone" ];
+          type = "sendreceive";
+        };
+        "Phone" = {
+          path = "/mnt/nas/Pictures/Phone";
+          devices = [ "myPhone" ];
+          type = "sendreceive";
         };
       };
     };

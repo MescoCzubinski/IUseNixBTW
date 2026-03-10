@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ wget git kitty ];
+  environment.systemPackages = with pkgs; [ wget git kitty tmux ];
 }
