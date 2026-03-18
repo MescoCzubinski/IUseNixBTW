@@ -30,6 +30,10 @@
           path = "/home/mieszko/Pictures";
           devices = [ "myServer" ];
         };
+        "Shared" = {
+          path = "/home/mieszko/Shared";
+          devices = [ "myServer" ];
+        };
       };
     };
   };

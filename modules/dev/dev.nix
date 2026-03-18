@@ -23,6 +23,8 @@
     neovim
     jetbrains.idea
 
+    claude-code
+
     # dev tools
     docker
     yaak

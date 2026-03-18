@@ -20,7 +20,7 @@
 
     peers = [
       {
-        publicKey = "krLtF9fME9f6zC8oziKcnFEZy9fOyQet61mwqRkpgGY="; # myLaptop
+        publicKey = "hmEmY4RPiWP7Kxh3sbbtwF1P62AAcI9YB2A3upSM2mg="; # myLaptop
         allowedIPs = [ "10.0.0.2/32" ];
       }
       {
