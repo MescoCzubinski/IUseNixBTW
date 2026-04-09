@@ -11,10 +11,12 @@
 
     ../../modules/utility/services.nix # services: audio, network, bluetooth
     ../../modules/utility/desktop.nix # desktop enviroment (Hyperland)
+    (import ../../modules/utility/sddm.nix { outputName = "eDP-1"; })
     ../../modules/utility/shell_aliases.nix # shell aliases
     ../../modules/utility/apps.nix # discord, spotify, browser, only office, etc.
 
-    ../../modules/dev/dev.nix # cursor, nvim, tools, languages
+    ../../modules/dev/dev.nix # tools, languages
+    ../../modules/dev/claude.nix # claude
 
     ../../modules/laptop/wireguard.nix # wireguard client
     ../../modules/client/syncthing.nix # sync with server
@@ -31,12 +33,10 @@
     users.mieszko = {
       imports = [
         ../../home/home.nix # dotfiles, cursor, etc.
-        ../../modules/users/mieszko/antigravity.nix # antigravity settings
         ../../modules/users/mieszko/apps.nix # rename apps
-        ../../modules/users/mieszko/cloudflare.nix # cloudflare config file
         ../../modules/users/mieszko/folders.nix # home folders
-        ../../modules/users/mieszko/vscode.nix # vscode settings
         ../../modules/users/mieszko/wireguard.nix # wireguard switch logic
+        ../../modules/dev/vscode.nix # vscodium
       ];
     };
   };

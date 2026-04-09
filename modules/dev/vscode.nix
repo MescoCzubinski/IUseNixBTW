@@ -3,16 +3,14 @@
 {
   programs.vscode = {
     enable = true;
-    profiles.default.userSettings = {
+    package = pkgs.vscodium;
+    userSettings = {
       # interface
-      "workbench.colorTheme" = "Theme Darker";
-      "workbench.iconTheme" = "material-icon-theme";
-      "material-icon-theme.activeIconPack" = "react";
+      "workbench.colorTheme" = "One Dark Pro";
       "workbench.startupEditor" = "none";
       "workbench.welcomePage.walkthroughs.openOnInstall" = false;
       "editor.minimap.enabled" = false;
       "explorer.compactFolders" = false;
-      "chat.viewSessions.orientation" = "stacked";
 
       # layout
       "workbench.sideBar.location" = "right";
@@ -26,6 +24,7 @@
       "editor.formatOnSave" = true;
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.bracketPairColorization.enabled" = true;
+      "codeium.enableCodeLens" = false;
 
       # files and save
       "files.autoSave" = "onFocusChange";
@@ -34,24 +33,15 @@
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
 
-      # AI
-      "github.copilot.nextEditSuggestions.enabled" = true;
-      "github.copilot.enable" = {
-        "*" = true;
-        "plaintext" = false;
-        "markdown" = true;
-        "scminput" = false;
-      };
-
       # Git
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
       "git.openRepositoryInParentFolders" = "never";
 
-      # terminal
+          # terminal
       "terminal.integrated.enableMultiLinePasteWarning" = "never";
       "terminal.integrated.fontFamily" = "'FiraCode Nerd Font'";
-      "terminal.integrated.fontSize" = 13;
+      "terminal.integrated.fontSize" = 12;
     };
   };
 }

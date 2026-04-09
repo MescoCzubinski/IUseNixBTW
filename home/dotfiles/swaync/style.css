@@ -1,224 +1,174 @@
 * {
-  font-family: "FiraCode Nerd Font";
-  font-size: 11pt;
-}
-
-.control-center {
-  background: rgba(19, 19, 19, 0.67);
+  font-family: "Inter";
+  font-size: 13px;
+  font-weight: 400;
+  border: none;
   border-radius: 0;
-  border-left: 3px solid #A6DA95;
-  padding: 20px;
+  transition: all 0.15s ease;
 }
 
-.notification-background {
-  border-radius: 0;
-}
-
-.control-center .notification-row .notification-background {
-  background: rgba(19, 19, 19, 0.67);
-  border: 3px solid #A6DA95;
-  border-radius: 0;
-  padding: 10px;
-  margin: 5px 0;
-}
-
-.control-center .notification-row .notification-background:hover {
-  background: rgba(73, 77, 100, 0.8);
-}
-
-.control-center .notification-row .notification {
+.floating-notifications,
+.floating-notifications window,
+.floating-notifications window > box {
   background: transparent;
-  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.floating-notifications .notification-row .notification-background {
+  background: rgba(16, 16, 16, 0.88);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  margin: 6px 8px;
+}
+
+.floating-notifications .notification {
+  background: transparent;
+  border-radius: 20px;
+  padding: 14px 16px;
   margin: 0;
 }
 
-.notification {
-  background: rgba(19, 19, 19, 0.67);
-  border: 3px solid #a6da95;
-  border-radius: 0;
-  padding: 15px;
-  margin: 8px;
-}
-
-.notification.low {
-  border-color: #8bd5ca;
-}
-
-.notification.normal {
-  border-color: #a6da95;
-}
-
-.notification.critical {
-  border-color: #ed8796;
-  background: rgba(237, 135, 150, 0.15);
-}
-
-.notification:hover {
-  background: rgba(73, 77, 100, 0.8);
-}
-
-.notification-content {
-  color: #f2f2f2;
-  padding: 5px;
-}
-
-.notification-default-action {
-  background: transparent;
-}
-
-.notification-default-action:hover {
-  background: rgba(73, 77, 100, 0.5);
-}
-
-.summary {
-  color: #a5adcb;
-  font-weight: bold;
-  font-size: 12pt;
-  margin-bottom: 3px;
-}
-
-.time {
-  color: #5b6078;
-  font-size: 9pt;
-  margin-left: 5px;
-}
-
-.body {
-  color: #f2f2f2;
-  margin-top: 5px;
-}
-
-.body-image {
-  border-radius: 12px;
-  margin: 5px 0;
+.control-center {
+  background: rgba(16, 16, 16, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
 }
 
 .control-center-list {
   background: transparent;
+  padding: 6px 10px 12px;
 }
 
 .control-center-list-placeholder {
-  color: #5b6078;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
+  color: rgba(226, 226, 226, 0.2);
+  font-size: 12px;
+  padding: 60px 20px;
 }
 
-.floating-notifications {
+.widget-title {
   background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e2e2;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.widget-title > button {
+  background: transparent;
+  color: rgba(226, 226, 226, 0.35);
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 0;
+  padding: 0;
+}
+
+.widget-title > button:hover {
+  color: #6b9ed8;
+  background: transparent;
+}
+
+.widget-dnd {
+  background: transparent;
+  color: #e2e2e2;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.widget-dnd > switch {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  min-width: 40px;
+  min-height: 22px;
+}
+
+.widget-dnd > switch:checked {
+  background: #7dc48a;
+}
+
+.widget-dnd > switch slider {
+  background: #e2e2e2;
+  border-radius: 100px;
+  min-width: 18px;
+  min-height: 18px;
+  margin: 2px;
+  box-shadow: none;
+}
+
+.notification-row {
+  padding: 1px 0;
+}
+
+.notification-background {
+  background: transparent;
+  border-radius: 20px;
+}
+
+.notification-background:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.notification {
+  background: transparent;
+  padding: 10px 12px;
+  margin: 0;
+}
+
+.notification-content {
+  padding: 0;
+}
+
+.summary {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e2e2;
+}
+
+.body {
+  font-size: 12px;
+  color: #737994;
+  margin-top: 2px;
+}
+
+.time {
+  font-size: 11px;
+  color: rgba(226, 226, 226, 0.25);
+}
+
+.body-image {
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+.notification-default-action {
+  background: transparent;
+  border-radius: 20px;
+}
+
+.notification-default-action:hover {
+  background: transparent;
+}
+
+.close-button {
+  background: transparent;
+  color: rgba(226, 226, 226, 0.3);
+  border-radius: 100px;
+  min-width: 18px;
+  min-height: 18px;
+  font-size: 11px;
+  padding: 0;
+  margin: 6px 6px 0 0;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e2e2;
 }
 
 .blank-window {
   background: transparent;
-}
-
-.widget-title {
-  color: #a5adcb;
-  font-size: 13pt;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.widget-title > button {
-  background: rgba(73, 77, 100, 0.8);
-  color: #a5adcb;
-  border: 2px solid #a6da95;
-  border-radius: 0;
-  padding: 5px 15px;
-}
-
-.widget-title > button:hover {
-  background: rgba(138, 173, 244, 0.3);
-  color: #8aadf4;
-}
-
-.widget-dnd {
-  background: rgba(19, 19, 19, 0.67);
-  border: 3px solid #a6da95;
-  border-radius: 0;
-  padding: 15px;
-  margin: 8px 0;
-}
-
-.widget-dnd > label {
-  color: #f2f2f2;
-}
-
-.widget-dnd > switch {
-  background: rgba(73, 77, 100, 0.8);
-  border: 2px solid #a6da95;
-  border-radius: 0;
-  min-width: 40px;
-  min-height: 20px;
-}
-
-.widget-dnd > switch:checked {
-  background: #a6da95;
-}
-
-.widget-dnd > switch slider {
-  background: #a5adcb;
-  border-radius: 0;
-  min-width: 18px;
-  min-height: 18px;
-}
-
-.widget-mpris {
-  background: rgba(19, 19, 19, 0.67);
-  border: 3px solid #a6da95;
-  border-radius: 0;
-  padding: 15px;
-  margin: 8px 0;
-}
-
-.widget-mpris-player {
-  background: transparent;
-  padding: 10px;
-}
-
-.widget-mpris > box > button {
-  background: rgba(73, 77, 100, 0.8);
-  color: #a5adcb;
-  border: 2px solid #a6da95;
-  border-radius: 0;
-  padding: 8px;
-  margin: 2px;
-}
-
-.widget-mpris > box > button:hover {
-  background: rgba(138, 173, 244, 0.3);
-  color: #8aadf4;
-}
-
-.widget-inhibitors {
-  background: rgba(19, 19, 19, 0.67);
-  border: 3px solid #a6da95;
-  border-radius: 0;
-  padding: 15px;
-  margin: 8px 0;
-}
-
-.widget-inhibitors > button {
-  background: rgba(73, 77, 100, 0.8);
-  color: #a5adcb;
-  border: 2px solid #a6da95;
-  border-radius: 0;
-  padding: 5px 15px;
-}
-
-.widget-inhibitors > button:hover {
-  background: rgba(138, 173, 244, 0.3);
-  color: #8aadf4;
-}
-
-.close-button {
-  background: rgba(237, 135, 150, 0.8);
-  color: #f2f2f2;
-  border: 2px solid #ed8796;
-  border-radius: 15px;
-  padding: 2px 8px;
-}
-
-.close-button:hover {
-  background: #ed8796;
 }

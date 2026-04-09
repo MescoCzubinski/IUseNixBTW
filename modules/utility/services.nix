@@ -34,6 +34,13 @@
     };
   };
 
+  # mpris bluetooth demon
+  systemd.user.services.mpris-proxy = {
+    after = [ "network.target" "sound.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
+
   # auto-mount
   services.udisks2.enable = true;
 

@@ -1,53 +1,80 @@
-# NixOS Configuration & Dotfiles
+# NixOS Configuration
 
-This repository contains my system-wide NixOS configuration and my user-specific dotfiles.
+Personal NixOS configuration managed as a flake, covering three machines: **laptop**, **desktop**, and **server**.
 
-### Nix Packkages
+## What is it
 
-[https://search.nixos.org](https://search.nixos.org/packages?channel=25.11&query=)
+A single repository that declaratively defines the full system state for all machines — packages, services, networking, dotfiles, and user environments. Changes are version-controlled and reproducible.
 
-### Rebuild
+## Structure
 
-```bash
-sudo nixos-rebuild switch --flake .#{HOST_NAME}
+```
+.nixos/
+├── flake.nix                  # Entrypoint — defines all three hosts
+├── flake.lock                 # Pinned dependency versions
+├── hosts/
+│   ├── laptop/                # Laptop-specific config + hardware
+│   ├── desktop/               # Desktop-specific config + hardware
+│   └── server/                # Server-specific config + hardware
+├── modules/
+│   ├── common.nix             # Shared base: boot, locale, nix settings
+│   ├── client/                # Shared client modules (syncthing)
+│   ├── desktop/               # Desktop-only modules (nvidia, logitech, wireguard)
+│   ├── dev/                   # Development tools (editors, languages)
+│   ├── games/                 # Gaming (Steam, Heroic/Epic)
+│   ├── laptop/                # Laptop-only modules (battery, wireguard)
+│   ├── server/                # Server modules (docker, traefik, cloudflare, ssh, syncthing, wireguard)
+│   ├── users/
+│   │   ├── mieszko/           # User account + home-manager modules
+│   │   └── server/            # Server user account
+│   └── utility/               # Common desktop utilities (apps, desktop env, services, aliases)
+└── home/
+    ├── home.nix               # Home-manager entrypoint (dotfiles, cursor, etc.)
+    └── dotfiles/              # Raw config files managed by home-manager
 ```
 
-Replace `{HOST_NAME}` with your actual host name
+## Rules / conventions
 
-### Update
+- **One module, one concern** — each `.nix` file configures a single feature or service.
+- **`common.nix` is imported by all hosts** — system-wide settings (locale, boot, nix GC) live there.
+- **Host configs are thin** — `hosts/*/configuration.nix` only imports modules; logic lives in modules.
+- **Home-manager runs inside NixOS** — used on laptop and desktop; server has no home-manager.
+- **Secrets are not in this repo** — SSH keys live in `~/.ssh/`, WireGuard keys in `/var/wireguard/`.
+- **`nixos-unstable` channel** — all machines track unstable for latest packages.
+- **`allowUnfree = true`** — required for nvidia drivers, cursor, discord, steam, etc.
+
+## Common commands
 
 ```bash
+# Apply configuration
+sudo nixos-rebuild switch --flake .#laptop    # or desktop / server
+
+# Update all flake inputs
 sudo nix flake update
-```
 
-### WireGuard Configuration
-
-```bash
-*VPN status*
+# Check WireGuard status
 systemctl status wireguard-wg0.service
-
-*state of connection*
 sudo wg show
-```
 
-### Cloudflare dyndns (on server)
-
-```bash
-*Status*
+# Check Cloudflare DDNS (server)
 systemctl status cloudflare-dyndns.service
+
+# Syncthing dashboard
+http://localhost:8384
+
+# USB / pendrive mount path
+/run/media/mieszko
 ```
 
-### Pendrive dir
+## Secrets locations
 
-```bash
-cd /run/media/mieszko
-```
+| Secret | Path |
+|---|---|
+| GitHub SSH keys | `~/.ssh/` |
+| WireGuard VPN keys | `/var/wireguard/` |
 
-### Syncthing dashboard
+## Useful links
 
-[http://localhost:8384](http://localhost:8384)
-
-### Secrets localization
-
-- GitHub ssh keys are in `/.ssh/`,
-- wireguard VPN keys are in `/var/wireguard/`,
+- [NixOS package search](https://search.nixos.org/packages?channel=unstable)
+- [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml)
+- [NixOS options search](https://search.nixos.org/options)

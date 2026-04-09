@@ -1,0 +1,48 @@
+// Vicinae configuration — merged with defaults (`vicinae config default` to inspect)
+// Manual edits are safe here; vicinae GUI writes may overwrite formatting.
+// See: https://docs.vicinae.com/config
+
+{
+  "$schema": "https://vicinae.com/schemas/config.json",
+
+  "launcher_window": {
+    "opacity": 0.92,
+    "size": { "width": 700, "height": 480 },
+    "blur": { "enabled": true },
+    "dim_around": true,
+    "compact_mode": { "enabled": false },
+    "client_side_decorations": { "border_radius": 20 }
+  },
+
+  "theme": {
+    "dark": {
+      "icon_theme": "Hicolor"
+    }
+  },
+
+  "font": {
+    "normal": {
+      "family": "Inter",
+      "size": 11
+    }
+  },
+
+  "escape_key_behavior": "close_window",
+  "close_on_focus_loss": true,
+  "pop_to_root_on_close": true,
+
+  "providers": {
+    "font": {
+      "enabled": true,
+      "entrypoints": {
+        "browse": { "enabled": true }
+      }
+    },
+    "calendar": {
+      "enabled": true,
+      "entrypoints": {
+        "browse": { "enabled": true }
+      }
+    }
+  }
+}

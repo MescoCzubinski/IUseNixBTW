@@ -8,6 +8,8 @@
     "c" = "cd";
     "cd.." = "cd ..";
     "cl" = "clear";
+    "op" = "brave";
+    "code" = "codium";
 
     "git-pull" = "git fetch && git pull";
     "git-commit" = "git add . && git commit -m";
@@ -17,13 +19,11 @@
 
     "nix-use" = "export NIXPKGS_ALLOW_UNFREE=1 && nix-shell -p";
     "nix-clean" = "sudo nix-collect-garbage -d";
+    "nix-update" = "cd ~/.nixos && sudo nix flake update";
 
     "nix-laptop" = "(cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#laptop)";
     "nix-desktop" = "(cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#desktop)";
-    "nix-update-laptop" = "cd ~/.nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#laptop";
-    "nix-update-desktop" = "cd ~/.nixos && sudo nix flake update && sudo nixos-rebuild switch --flake .#desktop";
 
     "nix-server" = "tmux new-session -d 'cd ~/.nixos && git pull && sudo nixos-rebuild boot --flake .#server && sudo reboot' && tmux attach";
-    "nix-update-server" = "tmux new-session -d 'cd ~/.nixos && git pull && sudo nix flake update && sudo nixos-rebuild boot --flake .#server && sudo reboot' && tmux attach";
   };
 }

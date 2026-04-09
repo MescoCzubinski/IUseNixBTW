@@ -19,11 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     # code editors
-    code-cursor
-    neovim
     jetbrains.idea
-
-    claude-code
 
     # dev tools
     docker

@@ -1,12 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+let
+  yaziPicker = pkgs.writeShellScript "yazi-picker" ''
+    kitty -e yazi --chooser-file="$1"
+  '';
+in
 
 {
-  # display manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-
-  # hyperland
-  programs.hyprland.enable =  true;
+  # hyprland
+  programs.hyprland.enable = true;
   security.pam.services.hyprlock = {};
 
   xdg.portal = {
@@ -14,20 +16,30 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
     ];
+    config.hyprland = {
+      default = [ "hyprland" "gtk" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+    };
   };
+
+  environment.etc."xdg/xdg-desktop-portal-termfilechooser/config".text = ''
+    [filechooser]
+    cmd=${yaziPicker}
+  '';
 
   # fonts
   fonts.packages = with pkgs; [
     fira-code
-    fira-code-symbols
+    inter
     nerd-fonts.fira-code
   ];
   fonts.fontconfig = {
     defaultFonts = {
       monospace = [ "FiraCode Nerd Font" ];
-      sansSerif = [ "Fira Sans" ];
-      serif     = [ "Fira Serif" ];
+      sansSerif = [ "Inter" ];
+      serif     = [ "Inter" ];
     };
   };
 
@@ -38,8 +50,8 @@
     hyprlock # screen locker
     waybar # task bar
 
-    rofi # application launcher
-    kitty # terminal
+    vicinae # application launcher
+    kitty # terminal (tui fallback)
     yazi # file manager
 
     # management
@@ -50,7 +62,6 @@
     swaynotificationcenter # notification center
 
     # screenshots
-    cliphist # clipboard manager
     hyprshot # screenshots
     wl-clipboard # clipboard utilities
 

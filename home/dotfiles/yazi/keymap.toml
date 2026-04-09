@@ -1,0 +1,3 @@
+[[manager.prepend_keymap]]
+on   = ["y"]
+run  = "shell 'printf \"%s\\n\" $@ | wl-copy'"

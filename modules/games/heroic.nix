@@ -5,6 +5,4 @@
     heroic
     legendary-gl
   ];
-
-  hardware.graphics.enable32Bit = true;
 }

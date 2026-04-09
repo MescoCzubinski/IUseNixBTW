@@ -1,54 +1,139 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Fira Code", "FiraCode Nerd Font", monospace;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: "Inter", "FiraCode Nerd Font";
+  font-size: 12px;
+  font-weight: 400;
   min-height: 0;
+  transition: color 0.15s ease;
 }
 
 window#waybar {
-  background: transparent;
-  color: #f2f2f2;
-}
-
-#custom-nixos,
-#custom-terminal,
-#custom-files,
-#custom-browser,
-#network,
-#bluetooth,
-#pulseaudio,
-#battery,
-#custom-vpn,
-#clock,
-#custom-notification {
-  background-color: transparent;
-  padding: 0px 10px;
-  margin: 0px;
+  background: rgba(16, 16, 16, 0.8);
+  color: #e2e2e2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #custom-nixos {
-  font-size: 16px;
-  font-weight: 600;
-  margin-left: 15px;
-}
-
-#bluetooth {
   font-size: 15px;
+  font-weight: 700;
+  padding: 0 14px;
+  color: #e2e2e2;
 }
 
+#custom-nixos:hover {
+  color: #737994;
+}
+
+#custom-terminal,
+#custom-files,
+#custom-browser {
+  padding: 0 10px;
+  font-weight: 500;
+  color: #e2e2e2;
+}
+
+#custom-terminal:hover,
+#custom-files:hover,
+#custom-browser:hover {
+  color: #737994;
+}
+
+#custom-sep {
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+  padding: 0 4px;
+}
+
+#window {
+  color: rgba(226, 226, 226, 0.5);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0 10px;
+}
+
+#clock {
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e2e2;
+  letter-spacing: 0.02em;
+}
+
+#clock:hover {
+  color: #737994;
+}
+
+#workspaces {
+  padding: 0 8px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 7px;
+  padding: 0 3px;
+  min-width: 0;
+  box-shadow: none;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: rgba(226, 226, 226, 0.5);
+  box-shadow: none;
+}
+
+#workspaces button.active {
+  color: #e2e2e2;
+}
+
+#network,
+#bluetooth,
 #pulseaudio {
-  font-size: 16px;
+  min-width: 28px;
+  padding: 0 6px;
+}
+
+#pulseaudio,
+#bluetooth,
+#custom-vpn,
+#custom-notification {
+  font-size: 14px;
+  padding: 0 9px;
+  color: #e2e2e2;
+}
+
+#network,
+#battery {
+  font-size: 12px;
+  padding: 0 9px;
+  color: #e2e2e2;
 }
 
 #custom-vpn {
-  font-size: 28px;
-  font-weight: 800;
-  transition: all 0.3s ease-in-out;
+  font-size: 20px;
 }
 
 #custom-notification {
-  font-size: 14px;
-  margin-right: 15px;
+  padding-right: 14px;
+}
+
+#network:hover,
+#bluetooth:hover,
+#custom-vpn:hover,
+#custom-notification:hover {
+  color: #737994;
+}
+
+#battery.warning,
+#battery.critical {
+  color: #e78284;
+}
+
+#network.disconnected,
+#bluetooth:not(.bluetooth-connected) {
+  color: #737994;
+}
+
+#bluetooth.bluetooth-connected {
+  color: #c8c8c8;
 }
