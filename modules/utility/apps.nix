@@ -5,6 +5,7 @@
     discord
     spotify
     obsidian
+    logseq
     brave
     signal-desktop
     onlyoffice-desktopeditors

@@ -17,6 +17,7 @@
 
     ../../modules/dev/dev.nix # tools, languages
     ../../modules/dev/claude.nix # claude
+    ../../modules/dev/vm.nix # claude
 
     ../../modules/laptop/wireguard.nix # wireguard client
     ../../modules/client/syncthing.nix # sync with server

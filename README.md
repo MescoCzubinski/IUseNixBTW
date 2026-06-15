@@ -64,13 +64,16 @@ http://localhost:8384
 
 # USB / pendrive mount path
 /run/media/mieszko
+
+# latex generation:
+pdflatex file.tex
 ```
 
 ## Secrets locations
 
-| Secret | Path |
-|---|---|
-| GitHub SSH keys | `~/.ssh/` |
+| Secret             | Path              |
+| ------------------ | ----------------- |
+| GitHub SSH keys    | `~/.ssh/`         |
 | WireGuard VPN keys | `/var/wireguard/` |
 
 ## Useful links

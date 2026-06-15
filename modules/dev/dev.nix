@@ -12,7 +12,7 @@
     enable = true;
     config = {
       user.name = "MescoCzubinski";
-      user.email = "mieszkoczubinski@gmail.com";
+      user.email = "181373867+MescoCzubinski@users.noreply.github.com";
       init.defaultBranch = "main";
     };
   };
@@ -24,11 +24,7 @@
     # dev tools
     docker
     yaak
-
-    # languages
-    nodejs
-    python3
-    go
+    miktex
   ];
 
   environment.variables.GOPATH = "$HOME/.local/share/go";

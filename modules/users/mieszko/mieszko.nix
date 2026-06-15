@@ -4,6 +4,6 @@
   users.users.mieszko = {
     isNormalUser = true;
     description = "mieszko";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users"];
   };
 }

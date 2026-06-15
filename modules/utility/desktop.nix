@@ -51,7 +51,7 @@ in
     waybar # task bar
 
     vicinae # application launcher
-    kitty # terminal (tui fallback)
+    kitty # terminal
     yazi # file manager
 
     # management
@@ -60,6 +60,7 @@ in
     brightnessctl # screen brightness controller
     playerctl # media controller (SUPER + space = pause/play)
     swaynotificationcenter # notification center
+    pwvucontrol # microphone manager
 
     # screenshots
     hyprshot # screenshots

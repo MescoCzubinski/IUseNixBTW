@@ -11,9 +11,11 @@
     "op" = "brave";
     "code" = "codium";
 
-    "git-pull" = "git fetch && git pull";
+    "neofetch" = "fastfetch";
+
     "git-commit" = "git add . && git commit -m";
-    "git-count" = "git ls-files | grep -vE \"\\.(png|jpg|jpeg|gif|pdf)$\" | xargs wc -l";
+    "git-main" = "git fetch origin main && git merge origin/main";
+    "git-count" = "git ls-files | grep -vE \"\\.(png|jpg|jpeg|gif|pdf|md)$\" | xargs wc -l";
 
     "wg-status" = "sudo wg show && systemctl status wireguard-wg0.service && ping 10.0.0.1";
 

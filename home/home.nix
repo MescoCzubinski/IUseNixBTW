@@ -16,7 +16,6 @@
     ".config/vicinae/settings.json".source = ./dotfiles/vicinae/settings.json;
     ".config/swaync".source = ./dotfiles/swaync;
     ".config/waybar".source = ./dotfiles/waybar;
-    ".config/yazi".source = ./dotfiles/yazi;
     ".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Ice";
   };
 

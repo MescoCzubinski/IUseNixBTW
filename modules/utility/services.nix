@@ -44,9 +44,19 @@
   # auto-mount
   services.udisks2.enable = true;
 
-  # zipping
+  # secrets wallet
+  services.gnome.gnome-keyring.enable = true;
+
   environment.systemPackages = with pkgs; [
+    # secrets
+    gnome-keyring
+    libsecret
+    seahorse
+
+    # zipping
     zip # z ip command
     unzip # unzip command
   ];
+
+  security.pam.services.hyprlock.enableGnomeKeyring = true;
 }
