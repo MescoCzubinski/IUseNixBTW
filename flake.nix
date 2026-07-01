@@ -24,12 +24,6 @@
           home-manager.nixosModules.home-manager
         ];
       };
-      server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/server/configuration.nix
-        ];
-      };
     };
   };
 }
