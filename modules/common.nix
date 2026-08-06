@@ -44,15 +44,19 @@
   # permission management
   security.polkit.enable = true;
 
-  services.dbus.enable = true;
+  services.dbus.implementation = "broker";
   services.upower.enable = true;
 
   # file system packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
   environment.systemPackages = with pkgs; [
     parted # partition manager
     exfatprogs # exfat filesystem support
     udiskie # automounting drives
+    cryptsetup # disk encription tool
     usbutils # USB utilites
   ];
 }

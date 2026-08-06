@@ -1,0 +1,31 @@
+[mgr]
+ratio          = [1, 4, 3]
+sort_by        = "natural"
+sort_dir_first = true
+sort_reverse   = false
+show_hidden    = false
+show_symlink   = true
+scrolloff      = 2
+linemode       = "size"
+
+[preview]
+tab_size   = 2
+max_width  = 3840
+max_height = 2160
+
+[opener]
+edit = [
+  { run = 'codium "$@"', desc = "VSCodium", orphan = true, block = false },
+]
+browser = [
+  { run = 'brave "$@"', desc = "Brave", orphan = true, block = false },
+]
+
+[open]
+prepend_rules = [
+  { url = "*/",               use = "edit" },
+  { mime = "image/*",         use = "browser" },
+  { mime = "video/*",         use = "browser" },
+  { mime = "application/pdf", use = "browser" },
+  { url = "*",                use = "edit" },
+]

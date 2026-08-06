@@ -1,10 +1,9 @@
 { pkgs, ... }:
 
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
-    userSettings = {
+    profiles.default.userSettings = {
       # interface
       "workbench.colorTheme" = "One Dark Pro";
       "workbench.startupEditor" = "none";
@@ -38,7 +37,7 @@
       "git.enableSmartCommit" = true;
       "git.openRepositoryInParentFolders" = "never";
 
-          # terminal
+      # terminal
       "terminal.integrated.enableMultiLinePasteWarning" = "never";
       "terminal.integrated.fontFamily" = "'FiraCode Nerd Font'";
       "terminal.integrated.fontSize" = 12;

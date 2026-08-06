@@ -2,32 +2,41 @@
 
 {
   environment.shellAliases = {
-    "sl" = "ls";
-    "la" = "ls -a";
+    "ls" = "ls --color=auto";
+    "sl" = "ls --color=auto";
+    "la" = "ls -a --color=auto";
+    "ll" = "ls -alh --color=auto";
+
+    "mv" = "mv -i";
+
     "dc" = "cd";
     "c" = "cd";
     "cd.." = "cd ..";
-    "cl" = "clear";
-    "op" = "brave";
-    "code" = "codium";
 
+    "grep" = "grep --color=auto";
+    "egrep" = "egrep --color=auto";
+    "fgrep" = "fgrep --color=auto";
+
+    "open" = "brave";
     "neofetch" = "fastfetch";
 
-    "git-commit" = "git add . && git commit -m";
-    "git-main" = "git fetch origin main && git merge origin/main";
-    "git-count" = "git ls-files | grep -vE \"\\.(png|jpg|jpeg|gif|pdf|md)$\" | xargs wc -l";
+    "codium" = "codium 2>/dev/null";
+    "code" = "codium 2>/dev/null";
+    "cdoe" = "codium 2>/dev/null";
 
-    "wg-status" = "sudo wg show && systemctl status wireguard-wg0.service && ping 10.0.0.1";
+    "git-count" = "git ls-files | grep -vE '\\.(png|jpg|jpeg|gif|pdf|md|json|csv|txt|lock)$' | xargs wc -l";
 
     "nix-use" = "export NIXPKGS_ALLOW_UNFREE=1 && nix-shell -p";
     "nix-clean" = "sudo nix-collect-garbage -d";
     "nix-update" = "cd ~/.nixos && sudo nix flake update";
 
-    "nix-laptop" = "(cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#laptop)";
-    "nix-desktop" = "(cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#desktop)";
+    "nix-laptop" = "cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#laptop";
+    "nix-laptop-boot" = "cd ~/.nixos && git add . && sudo nixos-rebuild boot --flake .#laptop";
+    "nix-desktop" = "cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#desktop";
+    "nix-desktop-boot" = "cd ~/.nixos && git add . && sudo nixos-rebuild boot --flake .#desktop";
 
-    "backup-mount" = "sudo cryptsetup luksOpen /dev/sda1 backup && sudo mkdir -p /mnt/backup && sudo mount /dev/mapper/backup /mnt/backup";
+    "backup-mount" = "sudo cryptsetup luksOpen /dev/sda1 backup && sudo mkdir -p /mnt/backup && sudo mount /dev/mapper/backup /mnt/backup && sudo chown -R mieszko:users /mnt/backup";
     "backup-umount" = "sudo umount /mnt/backup && sudo cryptsetup luksClose backup";
-    "backup-sync" = "rsync -avh --delete ~/Pictures/ /mnt/backup/Auto/Pictures/ && rsync -avh --delete ~/Projects/ /mnt/backup/Auto/Projects/ && rsync -avh --delete ~/Saved/ /mnt/backup/Auto/Saved/ && rsync -avh --delete ~/SecondBrain/ /mnt/backup/Auto/Notes/ && rsync -avh --delete ~/.nixos/ /mnt/backup/Auto/NixOS/";
+    "backup-sync" = "rsync -avh --delete ~/Notes/ /mnt/backup/Auto/Notes/ && rsync -avh --delete --exclude='.venv' --exclude='node_modules' ~/Projects/ /mnt/backup/Auto/Projects/ && rsync -avh --delete ~/Pictures/ /mnt/backup/Auto/Pictures/ && rsync -avh --delete ~/Saved/ /mnt/backup/Auto/Saved/ && rsync -avh --delete ~/.nixos/ /mnt/backup/Auto/NixOS/";
   };
 }

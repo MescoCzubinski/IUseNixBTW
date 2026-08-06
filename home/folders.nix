@@ -20,7 +20,7 @@
     after = [ "writeBoundary" ];
     before = [ ];
     data = ''
-      mkdir -p $HOME/Projects $HOME/SecondBrain $HOME/Pictures $HOME/Downloads $HOME/Shared
+      mkdir -p $HOME/Projects $HOME/Notes $HOME/Pictures $HOME/Downloads $HOME/Shared
     '';
   };
 }

@@ -16,8 +16,7 @@
   services.libinput.enable = true;
 
   # network service
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
+  networking.networkmanager.enable = true;
 
   # bluetooth service
   hardware.bluetooth = {
@@ -59,4 +58,5 @@
   ];
 
   security.pam.services.hyprlock.enableGnomeKeyring = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
 }

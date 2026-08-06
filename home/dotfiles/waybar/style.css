@@ -1,140 +1,81 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "Inter", "FiraCode Nerd Font";
-  font-size: 12px;
+  font-family:
+    "Inter", "Font Awesome 7 Free", "Font Awesome 7 Brands",
+    "Symbols Nerd Font", "FiraCode Nerd Font";
+  font-size: 13px;
   font-weight: 400;
   min-height: 0;
-  transition: color 0.15s ease;
+  transition: color 0.12s ease;
 }
 
 window#waybar {
-  background: rgba(16, 16, 16, 0.8);
-  color: #e2e2e2;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: rgba(0, 0, 0, 0.82);
 }
 
 #custom-nixos {
-  font-size: 15px;
-  font-weight: 700;
-  padding: 0 18px 0 18px;
-  color: #e2e2e2;
-}
-
-#custom-nixos:hover {
-  color: #737994;
-}
-
-#custom-terminal,
-#custom-files,
-#custom-browser {
-  padding: 0 10px;
-  font-weight: 500;
-  color: #e2e2e2;
-}
-
-#custom-terminal:hover,
-#custom-files:hover,
-#custom-browser:hover {
-  color: #737994;
-}
-
-#custom-sep {
-  color: rgba(255, 255, 255, 0.08);
-  font-size: 13px;
-  padding: 0 4px;
-}
-
-#window {
-  color: rgba(226, 226, 226, 0.5);
-  font-size: 12px;
-  font-weight: 400;
-  padding: 0 10px;
-}
-
-#clock {
-  font-size: 12px;
-  font-weight: 500;
-  color: #e2e2e2;
-  letter-spacing: 0.02em;
-}
-
-#clock:hover {
-  color: #737994;
+  font-size: 17px;
+  padding: 0 7px;
+  color: rgba(0, 0, 0, 0.82);
 }
 
 #workspaces {
-  padding: 0 8px;
+  padding: 0 6px;
 }
 
 #workspaces button {
   background: transparent;
-  color: rgba(255, 255, 255, 0.08);
+  color: rgba(0, 0, 0, 0.15);
   font-size: 7px;
   padding: 0 3px;
   min-width: 0;
   box-shadow: none;
 }
 
-#workspaces button:hover {
+#workspaces button:hover,
+#workspaces button:focus,
+#workspaces button:active {
   background: transparent;
-  color: rgba(226, 226, 226, 0.5);
   box-shadow: none;
+  outline: none;
 }
 
 #workspaces button.active {
-  color: #e2e2e2;
+  color: rgba(0, 0, 0, 0.82);
 }
 
-#network,
+#battery,
 #bluetooth,
 #pulseaudio {
-  min-width: 28px;
-  padding: 0 6px;
+  font-size: 13px;
+  padding: 0 7px;
+  color: rgba(0, 0, 0, 0.82);
 }
 
-#pulseaudio,
-#bluetooth,
-#custom-vpn,
-#custom-notification {
-  font-size: 14px;
-  padding: 0 9px;
-  color: #e2e2e2;
-}
-
-#network,
-#battery {
+#network {
   font-size: 12px;
-  padding: 0 9px;
-  color: #e2e2e2;
-}
-
-#custom-vpn {
-  font-size: 20px;
-}
-
-#custom-notification {
-  font-size: 14px;
-  padding: 0 18px 0 18px;
-}
-
-#network:hover,
-#bluetooth:hover,
-#custom-vpn:hover,
-#custom-notification:hover {
-  color: #737994;
-}
-
-#battery.warning,
-#battery.critical {
-  color: #e78284;
+  padding: 0 7px;
+  color: rgba(0, 0, 0, 0.82);
 }
 
 #network.disconnected,
-#bluetooth:not(.bluetooth-connected) {
-  color: #737994;
+#bluetooth:not(.connected),
+#pulseaudio.muted {
+  color: rgba(0, 0, 0, 0.35);
 }
 
-#bluetooth.bluetooth-connected {
-  color: #c8c8c8;
+#custom-dnd {
+  font-size: 12px;
+  padding: 0 8px;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+#clock {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.82);
+  letter-spacing: 0.01em;
+  padding: 0 7px;
 }

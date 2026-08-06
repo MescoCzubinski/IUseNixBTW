@@ -1,7 +1,7 @@
-{ outputName }: { pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  wallpaperSrc = ../../home/dotfiles/hypr/wallpaper.png;
+  wallpaperSrc = ../../home/dotfiles/hypr/wallpaper_main.png;
 
   sddmTheme = (pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";
@@ -24,39 +24,39 @@ let
       Blur = "2.0";
       HaveFormBackground = "true";
 
-      # Colors — matched to waybar/swaync palette
+      # Colors — matched to waybar/mako palette
       FormBackgroundColor = "#101010";
       BackgroundColor = "#101010";
-      HeaderTextColor = "#e2e2e2";
-      DateTextColor = "#737994";
-      TimeTextColor = "#e2e2e2";
+      HeaderTextColor = "#ffffff";
+      DateTextColor = "#3c3c3c";
+      TimeTextColor = "#ffffff";
 
       LoginFieldBackgroundColor = "#101010";
       PasswordFieldBackgroundColor = "#101010";
-      LoginFieldTextColor = "#e2e2e2";
-      PasswordFieldTextColor = "#e2e2e2";
-      UserIconColor = "#737994";
-      PasswordIconColor = "#737994";
-      PlaceholderTextColor = "#737994";
-      WarningColor = "#e78284";
+      LoginFieldTextColor = "#ffffff";
+      PasswordFieldTextColor = "#ffffff";
+      UserIconColor = "#3c3c3c";
+      PasswordIconColor = "#3c3c3c";
+      PlaceholderTextColor = "#3c3c3c";
+      WarningColor = "#ff5a5f";
 
-      LoginButtonBackgroundColor = "#6b9ed8";
-      LoginButtonTextColor = "#101010";
+      LoginButtonBackgroundColor = "#087e8b";
+      LoginButtonTextColor = "#000000";
 
-      SystemButtonsIconsColor = "#737994";
-      HoverSystemButtonsIconsColor = "#e2e2e2";
-      SessionButtonTextColor = "#737994";
-      HoverSessionButtonTextColor = "#e2e2e2";
-      VirtualKeyboardButtonTextColor = "#737994";
-      HoverVirtualKeyboardButtonTextColor = "#e2e2e2";
+      SystemButtonsIconsColor = "#3c3c3c";
+      HoverSystemButtonsIconsColor = "#ffffff";
+      SessionButtonTextColor = "#3c3c3c";
+      HoverSessionButtonTextColor = "#ffffff";
+      VirtualKeyboardButtonTextColor = "#3c3c3c";
+      HoverVirtualKeyboardButtonTextColor = "#ffffff";
 
-      HighlightBackgroundColor = "#6b9ed8";
-      HighlightTextColor = "#101010";
+      HighlightBackgroundColor = "#087e8b";
+      HighlightTextColor = "#000000";
       HighlightBorderColor = "transparent";
 
       DropdownBackgroundColor = "#101010";
-      DropdownTextColor = "#e2e2e2";
-      DropdownSelectedBackgroundColor = "#6b9ed8";
+      DropdownTextColor = "#ffffff";
+      DropdownSelectedBackgroundColor = "#087e8b";
 
       # Behavior
       HideSystemButtons = "false";
@@ -79,7 +79,6 @@ in
     wayland.enable = true;
     theme = "sddm-astronaut-theme";
     extraPackages = with pkgs.qt6; [ sddmTheme qtmultimedia ];
-    settings.Wayland.OutputName = outputName;
   };
 
   environment.systemPackages = [ sddmTheme ];

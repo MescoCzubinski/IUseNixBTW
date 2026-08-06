@@ -4,6 +4,7 @@
   users.users.mieszko = {
     isNormalUser = true;
     description = "mieszko";
-    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users"];
+    shell = pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users" ];
   };
 }

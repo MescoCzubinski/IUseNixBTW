@@ -28,7 +28,7 @@
   },
 
   "escape_key_behavior": "close_window",
-  "close_on_focus_loss": true,
+  "close_on_focus_loss": false,
   "pop_to_root_on_close": true,
 
   "providers": {
@@ -39,6 +39,18 @@
       }
     },
     "calendar": {
+      "enabled": true,
+      "entrypoints": {
+        "browse": { "enabled": true }
+      }
+    },
+    "bt": {
+      "enabled": true,
+      "entrypoints": {
+        "browse": { "enabled": true }
+      }
+    },
+    "nm": {
       "enabled": true,
       "entrypoints": {
         "browse": { "enabled": true }

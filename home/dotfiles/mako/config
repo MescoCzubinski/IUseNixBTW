@@ -1,0 +1,36 @@
+# mako — notification daemon (popups + do-not-disturb, no notification center)
+# Dark glassy popups, palette matched to waybar.
+
+sort=-time
+layer=overlay
+anchor=top-right
+max-visible=5
+
+font=Inter 12
+width=380
+height=160
+outer-margin=8
+margin=6
+padding=14,16
+
+border-size=1
+border-radius=20
+background-color=#101010e0
+text-color=#ffffff
+border-color=#ffffff14
+progress-color=over #83c1a6
+
+default-timeout=8000
+ignore-timeout=0
+
+[urgency=low]
+default-timeout=5000
+text-color=#c8c8c8
+
+[urgency=critical]
+default-timeout=0
+border-color=#f45b69
+
+# Toggled from waybar via `makoctl mode -t do-not-disturb`
+[mode=do-not-disturb]
+invisible=1

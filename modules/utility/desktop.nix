@@ -4,6 +4,15 @@ let
   yaziPicker = pkgs.writeShellScript "yazi-picker" ''
     kitty -e yazi --chooser-file="$1"
   '';
+
+  yaziCd = pkgs.writeShellScriptBin "yazicd" ''
+    tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+    ${pkgs.yazi}/bin/yazi "$@" --cwd-file="$tmp"
+    cwd="$(cat -- "$tmp")"
+    rm -f -- "$tmp"
+    [ -n "$cwd" ] && cd -- "$cwd"
+    exec ${pkgs.bashInteractive}/bin/bash -i
+  '';
 in
 
 {
@@ -34,6 +43,7 @@ in
     fira-code
     inter
     nerd-fonts.fira-code
+    font-awesome
   ];
   fonts.fontconfig = {
     defaultFonts = {
@@ -53,13 +63,14 @@ in
     vicinae # application launcher
     kitty # terminal
     yazi # file manager
+    yaziCd
 
     # management
     bluetui # bluetooth tui manager
     impala # network tui manager
     brightnessctl # screen brightness controller
     playerctl # media controller (SUPER + space = pause/play)
-    swaynotificationcenter # notification center
+    mako # notification daemon (popups + do-not-disturb)
     pwvucontrol # microphone manager
 
     # screenshots
@@ -70,5 +81,8 @@ in
     fastfetch # fancy terminal info
     cmatrix # matrix effect
     bibata-cursors # cursor theme
+
+    wtype # type characters into focused window
+    jq # JSON processor (used by screen-rotation keybinds)
   ];
 }

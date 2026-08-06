@@ -17,14 +17,25 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    # code editors
-    jetbrains.idea
+  # claude-code
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      openssl
+    ];
+  };
 
-    # dev tools
+  environment.systemPackages = with pkgs; [
     docker
-    yaak
-    miktex
+    yaak # curl client
+    miktex # latex cli
+    kubectl # k8s cli
+    kubernetes-helm # helm cli
+
+    claude-code
+    code-cursor
   ];
 
   environment.variables.GOPATH = "$HOME/.local/share/go";

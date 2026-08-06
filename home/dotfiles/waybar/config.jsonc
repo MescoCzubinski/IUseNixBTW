@@ -5,71 +5,69 @@
   "ipc": true,
   "exclusive": true,
   "passthrough": false,
-  "height": 28,
-  "margin-top": 0,
+  "output": ["DP-1", "eDP-1"],
+  "height": 16,
+  "margin-top": 8,
   "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
+  "margin-left": 8,
+  "margin-right": 8,
   "spacing": 0,
 
-  "modules-left": [
-    "custom/nixos",
-    "custom/terminal",
-    "custom/files",
-    "custom/browser",
-    "custom/sep",
-    "hyprland/window",
-  ],
-  "modules-center": ["clock"],
+  "modules-left": ["custom/nixos"],
   "modules-right": [
-    "hyprland/workspaces",
-    "network",
-    "pulseaudio",
-    "bluetooth",
-    "custom/vpn",
     "battery",
-    "custom/notification",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "network",
+    "bluetooth",
+    "hyprland/workspaces",
+    "custom/dnd",
+    "clock",
   ],
 
   "custom/nixos": {
     "format": "",
     "tooltip": false,
-    "on-click": "kitty --hold fastfetch",
   },
-
-  "custom/terminal": {
-    "format": "Terminal",
-    "tooltip": false,
-    "on-click": "kitty",
-  },
-
-  "custom/files": {
-    "format": "Files",
-    "tooltip": false,
-    "on-click": "kitty yazi",
-  },
-
-  "custom/browser": {
-    "format": "Browser",
-    "tooltip": false,
-    "on-click": "kitty brave",
-  },
-
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false,
-  },
-
-  "hyprland/window": {
-    "format": "{initialClass}",
-    "separate-outputs": true,
-    "rewrite": {
-      "^$": "",
-      "brave-browser": "browser",
-      "codium": "editor",
-      "kitty": "terminal",
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 10,
     },
+    "format": "{capacity}%",
+    "format-charging": "{capacity}%",
+    "format-plugged": "{capacity}%",
     "tooltip": false,
+  },
+
+  "pulseaudio": {
+    "format": "",
+    "format-muted": "",
+    "tooltip": false,
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "tooltip": false,
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip": false,
+    "on-click": "vicinae open -q 'Manage Saved Networks'",
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-off": "",
+    "format-connected": "",
+    "tooltip": false,
+    "on-click": "vicinae open -q 'Bluetooth Devices'",
   },
 
   "hyprland/workspaces": {
@@ -77,76 +75,18 @@
     "on-click": "activate",
   },
 
-  "network": {
-    "format-wifi": "",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰖪",
-    "tooltip-format-wifi": "{essid}",
-    "tooltip-format-ethernet": "{ifname}",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "kitty impala",
-  },
-
-  "bluetooth": {
-    "format": "󰂯",
-    "format-disabled": "󰂲",
-    "format-off": "󰂲",
-    "format-connected": "󰂯",
-    "tooltip-format": "{device_alias}",
-    "tooltip-format-connected": "{device_alias}",
-    "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "kitty bluetui",
-  },
-
-  "pulseaudio": {
-    "format": "󰕾",
-    "format-muted": "󰖁",
-    "tooltip": false,
-  },
-
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 10,
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": "󱐋 {capacity}%",
-    "format-plugged": "󱐋 {capacity}%",
-    "tooltip": false,
-  },
-
-  "custom/vpn": {
+  "custom/dnd": {
     "format": "{}",
-    "exec": "/home/mieszko/.config/scripts/vpn.sh",
-    "on-click": "/home/mieszko/.config/scripts/vpn.sh toggle",
-    "return-type": "json",
-    "interval": 3600,
+    "exec": "makoctl mode | grep -q do-not-disturb && echo '' || echo ''",
+    "on-click": "makoctl mode -t do-not-disturb; pkill -RTMIN+8 waybar",
+    "interval": "once",
     "signal": 8,
     "tooltip": false,
   },
 
   "clock": {
     "interval": 1,
-    "format": "{:%A, %d %b %H:%M}",
-    "tooltip": false,
-    "on-click": "vicinae toggle",
-  },
-
-  "custom/notification": {
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "󱅫",
-      "none": "󰂚",
-      "dnd-notification": "󱏧",
-      "dnd-none": "󱏧",
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true,
+    "format": "{:%a, %b %d  %H:%M}",
     "tooltip": false,
   },
 }

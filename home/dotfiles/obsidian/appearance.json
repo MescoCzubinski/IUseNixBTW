@@ -1,0 +1,9 @@
+{
+  "cssTheme": "Minimal",
+  "accentColor": "#3c3c3c",
+  "theme": "obsidian",
+  "nativeMenus": false,
+  "monospaceFontFamily": "Fira",
+  "showRibbon": false,
+  "showViewHeader": false
+}

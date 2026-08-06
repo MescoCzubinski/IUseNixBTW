@@ -1,22 +1,33 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  imports = [
+    ./fish.nix # fish shell + prompt
+    ./atuin.nix # shell history
+    ./folders.nix # home folders
+    ./vscode.nix # vscodium
+  ];
+
   home.username = "mieszko";
   home.homeDirectory = "/home/mieszko";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.file = {
-    ".config/hypr/hypridle.conf".source = ./dotfiles/hypr/hypridle.conf;
-    ".config/hypr/hyprland.conf".source = ./dotfiles/hypr/hyprland.conf;
-    ".config/hypr/hyprlock.conf".source = ./dotfiles/hypr/hyprlock.conf;
-    ".config/hypr/hyprpaper.conf".source = ./dotfiles/hypr/hyprpaper.conf;
-    ".config/hypr/wallpaper.png".source = ./dotfiles/hypr/wallpaper.png;
+    ".config/hypr".source = ./dotfiles/hypr;
     ".config/kitty".source = ./dotfiles/kitty;
     ".config/fastfetch".source = ./dotfiles/fastfetch;
     ".config/vicinae/settings.json".source = ./dotfiles/vicinae/settings.json;
-    ".config/swaync".source = ./dotfiles/swaync;
+    ".config/mako".source = ./dotfiles/mako;
     ".config/waybar".source = ./dotfiles/waybar;
+    ".config/yazi".source = ./dotfiles/yazi;
     ".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Ice";
+
+    "Notes/.obsidian/app.json".source = ./dotfiles/obsidian/app.json;
+    "Notes/.obsidian/appearance.json".source = ./dotfiles/obsidian/appearance.json;
+    "Notes/.obsidian/backlink.json".source = ./dotfiles/obsidian/backlink.json;
+    "Notes/.obsidian/core-plugins.json".source = ./dotfiles/obsidian/core-plugins.json;
+    "Notes/.obsidian/daily-notes.json".source = ./dotfiles/obsidian/daily-notes.json;
+    "Notes/.obsidian/switcher.json".source = ./dotfiles/obsidian/switcher.json;
   };
 
   programs.home-manager.enable = true;
