@@ -18,6 +18,11 @@
     ../../modules/utility/apps.nix
     ../../modules/utility/dev.nix
 
+    ../../modules/server/samba.nix
+    ../../modules/server/syncthing.nix
+    ../../modules/server/network.nix
+    ../../modules/desktop/wireguard.nix
+
     ../../modules/games/steam.nix
     ../../modules/games/heroic.nix
 

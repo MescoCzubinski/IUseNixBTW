@@ -17,6 +17,11 @@
     ../../modules/utility/apps.nix
     ../../modules/utility/dev.nix
 
+    ../../modules/server/samba.nix
+    ../../modules/server/syncthing.nix
+    ../../modules/server/network.nix
+    ../../modules/laptop/wireguard.nix
+
     ../../modules/games/heroic.nix
 
     ../../modules/users/mieszko.nix
