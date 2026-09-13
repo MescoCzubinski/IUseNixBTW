@@ -34,11 +34,7 @@
   };
 
   # mpris bluetooth demon
-  systemd.user.services.mpris-proxy = {
-    after = [ "network.target" "sound.target" ];
-    wantedBy = [ "default.target" ];
-    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-  };
+  systemd.user.services.mpris-proxy.wantedBy = [ "default.target" ];
 
   # auto-mount
   services.udisks2.enable = true;
@@ -48,13 +44,12 @@
 
   environment.systemPackages = with pkgs; [
     # secrets
-    gnome-keyring
     libsecret
     seahorse
 
     # zipping
-    zip # z ip command
-    unzip # unzip command
+    zip
+    unzip
   ];
 
   security.pam.services.hyprlock.enableGnomeKeyring = true;

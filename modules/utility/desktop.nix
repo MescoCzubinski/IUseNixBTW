@@ -1,10 +1,6 @@
 { pkgs, lib, ... }:
 
 let
-  yaziPicker = pkgs.writeShellScript "yazi-picker" ''
-    kitty -e yazi --chooser-file="$1"
-  '';
-
   yaziCd = pkgs.writeShellScriptBin "yazicd" ''
     tmp="$(mktemp -t yazi-cwd.XXXXXX)"
     ${pkgs.yazi}/bin/yazi "$@" --cwd-file="$tmp"
@@ -33,11 +29,6 @@ in
     };
   };
 
-  environment.etc."xdg/xdg-desktop-portal-termfilechooser/config".text = ''
-    [filechooser]
-    cmd=${yaziPicker}
-  '';
-
   # fonts
   fonts.packages = with pkgs; [
     fira-code
@@ -53,6 +44,18 @@ in
     };
   };
 
+  # theme
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        cursor-theme = "Bibata-Modern-Ice";
+        cursor-size = lib.gvariant.mkInt32 24;
+        gtk-theme = "Adwaita-dark";
+        color-scheme = "prefer-dark";
+      };
+    }
+  ];
+
   environment.systemPackages = with pkgs; [
     # main
     hypridle # power management
@@ -62,8 +65,12 @@ in
 
     vicinae # application launcher
     kitty # terminal
+    eza # ls replacement
+    chafa # terminal graphics
     yazi # file manager
     yaziCd
+    btop # monitor of resources
+
 
     # management
     bluetui # bluetooth tui manager

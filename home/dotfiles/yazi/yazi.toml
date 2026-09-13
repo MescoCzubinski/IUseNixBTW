@@ -1,5 +1,5 @@
 [mgr]
-ratio          = [1, 4, 3]
+ratio          = [1, 4, 4]
 sort_by        = "natural"
 sort_dir_first = true
 sort_reverse   = false
@@ -18,14 +18,30 @@ edit = [
   { run = 'codium "$@"', desc = "VSCodium", orphan = true, block = false },
 ]
 browser = [
-  { run = 'brave "$@"', desc = "Brave", orphan = true, block = false },
+  { run = 'zen-beta "$@"', desc = "Zen", orphan = true, block = false },
+]
+office = [
+  { run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", orphan = true, block = false },
+]
+text = [
+  { run = 'nano "$@"', desc = "Nano", block = true },
 ]
 
 [open]
 prepend_rules = [
-  { url = "*/",               use = "edit" },
-  { mime = "image/*",         use = "browser" },
-  { mime = "video/*",         use = "browser" },
-  { mime = "application/pdf", use = "browser" },
-  { url = "*",                use = "edit" },
+  { url  = "*/",               use = "edit" },
+  { mime = "image/*",          use = "browser" },
+  { mime = "video/*",          use = "browser" },
+  { mime = "audio/*",          use = "browser" },
+  { mime = "application/pdf",  use = "browser" },
+  { url  = "*.xlsx",           use = "office" },
+  { url  = "*.xls",            use = "office" },
+  { url  = "*.docx",           use = "office" },
+  { url  = "*.doc",            use = "office" },
+  { url  = "*.pptx",           use = "office" },
+  { url  = "*.ppt",            use = "office" },
+  { url  = "*.odt",            use = "office" },
+  { url  = "*.ods",            use = "office" },
+  { url  = "*.odp",            use = "office" },
+  { url  = "*",                use = "text" },
 ]

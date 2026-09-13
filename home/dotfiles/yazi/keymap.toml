@@ -1,0 +1,7 @@
+[mgr]
+prepend_keymap = [
+  { on = [",", "r"], run = 'shell "batch-rename $1" --block --confirm', desc = "Batch rename files in hovered folder" },
+  { on = [",", "t"], run = 'shell "batch-rename $1 --with_time" --block --confirm', desc = "Batch rename files in hovered folder (with date prefix)" },
+  { on = [",", "z"], run = 'shell "zip -r $1.zip $1" --confirm', desc = "Zip hovered file/folder" },
+  { on = [",", "u"], run = 'shell "unzip $1" --confirm', desc = "Unzip hovered archive" },
+]

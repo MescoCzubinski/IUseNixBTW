@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  wallpaperSrc = ../../home/dotfiles/hypr/wallpaper_main.png;
+  wallpaperSrc = ../../home/wallpapers/wallpaper_main.png;
 
   sddmTheme = (pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";

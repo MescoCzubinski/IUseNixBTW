@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstablePkgs, ... }:
 
 {
   virtualisation.docker.enable = true;
@@ -29,13 +29,14 @@
 
   environment.systemPackages = with pkgs; [
     docker
-    yaak # curl client
-    miktex # latex cli
-    kubectl # k8s cli
-    kubernetes-helm # helm cli
+    skills
+    yaak
+    miktex
+    kubectl
+    kubernetes-helm
 
-    claude-code
-    code-cursor
+    unstablePkgs.claude-code
+    unstablePkgs.code-cursor
   ];
 
   environment.variables.GOPATH = "$HOME/.local/share/go";

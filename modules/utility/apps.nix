@@ -2,19 +2,24 @@
 
 {
   environment.systemPackages = with pkgs; [
-    inputs.claude-desktop.packages.${pkgs.system}.claude-desktop-fhs
-
-    discord
     spotify
     obsidian
-    brave
-    signal-desktop
     onlyoffice-desktopeditors
+    inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-fhs
+    winboat
+
+    # graphic
     krita
     rnote
 
-    # productivity
-    blanket
-    gnome-solanum
+    # communicator
+    discord
+    signal-desktop
+
+    # browsers
+    brave
+    google-chrome
+    firefox
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

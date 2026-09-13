@@ -1,7 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = "nix-command flakes";
+  nix.channel.enable = false;
   boot.loader = {
     systemd-boot = {
       enable = true;
@@ -49,9 +50,14 @@
 
   # file system packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
+  nixpkgs.config.allowInsecurePredicate = pkg: pkgs.lib.hasPrefix "electron" (pkgs.lib.getName pkg);
+
+  # nixos-unstable
+  _module.args.unstablePkgs = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+
   environment.systemPackages = with pkgs; [
     parted # partition manager
     exfatprogs # exfat filesystem support

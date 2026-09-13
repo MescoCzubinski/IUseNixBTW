@@ -33,7 +33,6 @@
         set -l afg 101010
         set -l ibg 3a3a3c
         set -l ifg c8c8cc
-        set -l sep (printf '\ue0bc')
 
         set -l path (prompt_pwd -d 0)
         set -l parent (string replace -r '/[^/]+$' "" -- $path)
@@ -42,16 +41,13 @@
 
         if test -n "$parent"
             set_color -b $ibg $ifg
-            echo -n "$parent"
-            set_color -b $abg $ibg
-            echo -n $sep
+            echo -n "$parent/"
         end
 
         set_color -b $abg $afg
         echo -n "$leaf"
         set_color normal
         set_color $abg
-        echo -n $sep
         set_color normal
         echo
 

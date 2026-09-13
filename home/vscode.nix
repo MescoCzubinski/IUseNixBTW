@@ -10,10 +10,11 @@
       "workbench.welcomePage.walkthroughs.openOnInstall" = false;
       "editor.minimap.enabled" = false;
       "explorer.compactFolders" = false;
+      "markdown-preview-enhanced.previewTheme" = "one-dark.css";
+      "claudeCode.hideOnboarding" = true;
 
       # layout
       "workbench.sideBar.location" = "right";
-      "workbench.editor.position" = "left";
 
       # editor
       "editor.fontFamily" = "'Fira Code', 'FiraCode Nerd Font', monospace";
@@ -23,7 +24,6 @@
       "editor.formatOnSave" = true;
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.bracketPairColorization.enabled" = true;
-      "codeium.enableCodeLens" = false;
 
       # files and save
       "files.autoSave" = "onFocusChange";

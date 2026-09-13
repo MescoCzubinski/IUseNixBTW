@@ -2,23 +2,29 @@
 
 {
   environment.shellAliases = {
-    "ls" = "ls --color=auto";
-    "sl" = "ls --color=auto";
-    "la" = "ls -a --color=auto";
-    "ll" = "ls -alh --color=auto";
+    "ls" = "eza --grid --icons --hyperlink --color --group-directories-first --no-symlinks";
+    "sl" = "eza --grid --icons --hyperlink --color --group-directories-first --no-symlinks";
+    "la" = "eza --grid --icons --hyperlink --color --group-directories-first --no-symlinks --all";
+    "al" = "eza --grid --icons --hyperlink --color --group-directories-first --no-symlinks --all";
+    "ll" = "eza --oneline --icons --hyperlink --color --group-directories-first --no-symlinks --all --long";
 
-    "mv" = "mv -i";
+    "rename" = "batch-rename";
 
     "dc" = "cd";
     "c" = "cd";
     "cd.." = "cd ..";
 
+    "findd" = "find . -type d -name";
+    "findf" = "find . -type f -name";
+
     "grep" = "grep --color=auto";
     "egrep" = "egrep --color=auto";
     "fgrep" = "fgrep --color=auto";
 
-    "open" = "brave";
+    "img" = "chafa";
+    "open" = "zen-beta";
     "neofetch" = "fastfetch";
+    "myip" = "curl ifconfig.me";
 
     "codium" = "codium 2>/dev/null";
     "code" = "codium 2>/dev/null";
@@ -35,8 +41,6 @@
     "nix-desktop" = "cd ~/.nixos && git add . && sudo nixos-rebuild switch --flake .#desktop";
     "nix-desktop-boot" = "cd ~/.nixos && git add . && sudo nixos-rebuild boot --flake .#desktop";
 
-    "backup-mount" = "sudo cryptsetup luksOpen /dev/sda1 backup && sudo mkdir -p /mnt/backup && sudo mount /dev/mapper/backup /mnt/backup && sudo chown -R mieszko:users /mnt/backup";
-    "backup-umount" = "sudo umount /mnt/backup && sudo cryptsetup luksClose backup";
-    "backup-sync" = "rsync -avh --delete ~/Notes/ /mnt/backup/Auto/Notes/ && rsync -avh --delete --exclude='.venv' --exclude='node_modules' ~/Projects/ /mnt/backup/Auto/Projects/ && rsync -avh --delete ~/Pictures/ /mnt/backup/Auto/Pictures/ && rsync -avh --delete ~/Saved/ /mnt/backup/Auto/Saved/ && rsync -avh --delete ~/.nixos/ /mnt/backup/Auto/NixOS/";
+    "backup-sync" = "rsync -avh --delete ~/Notes/ /run/media/mieszko/Backup/Auto/Notes/ && rsync -avh --delete --exclude='.venv' --exclude='node_modules' ~/Projects/ /run/media/mieszko/Backup/Auto/Projects/ && rsync -avh --delete ~/Pictures/ /run/media/mieszko/Backup/Auto/Pictures/ && rsync -avh --delete ~/Saved/ /run/media/mieszko/Backup/Auto/Saved/ && rsync -avh --delete ~/.nixos/ /run/media/mieszko/Backup/Auto/NixOS/";
   };
 }
