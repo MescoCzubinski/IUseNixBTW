@@ -52,6 +52,9 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecurePredicate = pkg: pkgs.lib.hasPrefix "electron" (pkgs.lib.getName pkg);
 
+  # machine-local values
+  _module.args.private = import /etc/nixos/private.nix;
+
   # nixos-unstable
   _module.args.unstablePkgs = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;

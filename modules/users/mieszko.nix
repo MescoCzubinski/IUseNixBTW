@@ -5,6 +5,6 @@
     isNormalUser = true;
     description = "mieszko";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "video" "docker" "syncthing" "users" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" "users" ];
   };
 }

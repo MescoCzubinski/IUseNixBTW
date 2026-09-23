@@ -28,11 +28,12 @@
   };
 
   environment.systemPackages = with pkgs; [
+    yaak
     docker
     skills
-    yaak
-    miktex
+
     kubectl
+    kubeseal
     kubernetes-helm
 
     unstablePkgs.claude-code

@@ -1,56 +1,48 @@
-# NixOS Configuration
+# I use NixOS BTW
 
-Personal NixOS configuration managed as a flake, covering three machines: **laptop**, **desktop**.
+My NixOS config for two machines, a **laptop** and a **desktop**. It's a single flake that sets up the whole system: packages, services, the Hyprland desktop, dotfiles and home-server clients.
 
-## What is it
+## At a glance
 
-A single repository that declaratively defines the full system state for all machines — packages, services, networking, dotfiles, and user environments. Changes are version-controlled and reproducible.
+| Area                | Choice                                              |
+| ------------------- | --------------------------------------------------- |
+| Compositor          | Hyprland (+ hypridle, hyprlock, hyprpaper)          |
+| Login screen        | SDDM                                                |
+| Bar / notifications | Waybar / Mako                                       |
+| Launcher            | Vicinae                                             |
+| Terminal / shell    | Kitty / Fish with Atuin history                     |
+| File manager        | Yazi, which is also the system-wide GTK file picker |
+| Editor              | VSCodium                                            |
+| AI                  | Claude Code, Claude Desktop app                     |
+| Browser             | Zen (from a flake input)                            |
 
-## Rules / conventions
+## Layout
 
-- **One module, one concern** — each `.nix` file configures a single feature or service.
-- **`common.nix` is imported by all hosts** — system-wide settings (locale, boot, nix GC) live there.
-- **Host configs are thin** — `hosts/*/configuration.nix` only imports modules; logic lives in modules.
-- **Home-manager runs inside NixOS** — used on laptop and desktop.
-- **Secrets are not in this repo** — SSH keys live in `~/.ssh/`, WireGuard keys in `/var/wireguard/`.
-- **`nixos-unstable` channel** — all machines track unstable for latest packages.
-- **`allowUnfree = true`** — required for nvidia drivers, cursor, discord, steam, etc.
-
-## Common commands
-
-```bash
-# Apply configuration
-sudo nixos-rebuild switch --flake .#laptop    # or desktop
-
-# Update all flake inputs
-sudo nix flake update
-
-# Check WireGuard status
-systemctl status wireguard-wg0.service
-sudo wg show
-
-# Check Cloudflare DDNS (server)
-systemctl status cloudflare-dyndns.service
-
-# Syncthing dashboard
-http://localhost:8384
-
-# USB / pendrive mount path
-/run/media/mieszko
-
-# latex generation:
-pdflatex file.tex
 ```
 
-## Secrets locations
+├── flake.nix              # inputs + one nixosConfiguration per host
+├── hosts/
+│   ├── laptop/            # configuration.nix + hardware-configuration.nix
+│   └── desktop/
+├── modules/               # NixOS (system-level) modules
+│   ├── common.nix         # shared by every host: boot, nix settings, GC, locale
+│   ├── utility/           # desktop, services, shell, apps, dev tools, login screen
+│   ├── clients/           # home server clients: WireGuard, Samba, Syncthing, local DNS
+│   ├── desktop/           # desktop-only: NVIDIA, Logitech
+│   ├── laptop/            # laptop-only: TLP, battery alerts, mic-mute LED
+│   ├── games/             # Steam (+ Proton-GE), Heroic
+│   └── users/             # user account
+└── home/                  # Home Manager (user-level) config
+    ├── home.nix           # entry point, links raw dotfiles into ~/.config
+    ├── hyprland/          # hyprland, hypridle, hyprlock, hyprpaper
+    ├── terminal/          # fish, kitty, atuin, yazi
+    ├── dotfiles/          # plain config files (waybar, mako, yazi, vicinae, fastfetch)
+    └── wallpapers/
+```
 
-| Secret             | Path              |
-| ------------------ | ----------------- |
-| GitHub SSH keys    | `~/.ssh/`         |
-| WireGuard VPN keys | `/var/wireguard/` |
+## Things worth a look
 
-## Useful links
-
-- [NixOS package search](https://search.nixos.org/packages?channel=unstable)
-- [Home Manager options](https://nix-community.github.io/home-manager/options.xhtml)
-- [NixOS options search](https://search.nixos.org/options)
+- **Stable with unstable picked per package.** [`modules/common.nix`](modules/common.nix) turns `nixpkgs-unstable` into a module argument called `unstablePkgs`. A module asks for `unstablePkgs` and uses it for a single package, like `unstablePkgs.claude-code` in [`dev.nix`](modules/utility/dev.nix).
+- **Yazi as the file picker for every app.** [`desktop.nix`](modules/utility/desktop.nix) sends the portal's FileChooser to `xdg-desktop-portal-termfilechooser`. [`home/terminal/yazi.nix`](home/terminal/yazi.nix) then opens Yazi in Kitty whenever an app asks for a file or folder, which replaces the GTK dialog in browsers, Electron apps and others.
+- **Focus-or-launch keybinds.** In [`hyprland.nix`](home/hyprland/hyprland.nix), `SUPER+D/N/S` switch to Discord, Obsidian or Spotify if one is already open, and launch it if not.
+- **Fish tweaks.** In [`fish.nix`](home/terminal/fish.nix), Tab accepts the autosuggestion first and falls back to normal completion.

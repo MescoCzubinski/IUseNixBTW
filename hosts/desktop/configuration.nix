@@ -18,10 +18,10 @@
     ../../modules/utility/apps.nix
     ../../modules/utility/dev.nix
 
-    ../../modules/server/samba.nix
-    ../../modules/server/syncthing.nix
-    ../../modules/server/network.nix
-    ../../modules/desktop/wireguard.nix
+    ../../modules/clients/samba.nix
+    ../../modules/clients/syncthing.nix
+    ../../modules/clients/network.nix
+    ../../modules/clients/wireguard.nix
 
     ../../modules/games/steam.nix
     ../../modules/games/heroic.nix
