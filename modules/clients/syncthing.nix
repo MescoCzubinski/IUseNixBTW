@@ -1,12 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, private, ... }:
 
 {
-  users.users.syncthing = {
-    isSystemUser = true;
-    group = "syncthing";
-  };
-  users.groups.syncthing = {};
-
   services.syncthing = {
     enable = true;
     user = "mieszko";
@@ -17,8 +11,8 @@
     settings = {
       devices = {
         "myServer" = {
-          id = "YCDC7E4-UYIV5RI-OH22JFP-Z5S67WL-NT3RCRA-QHLNZ6N-O6WLMQA-72D36AF";
-          addresses = [ "tcp://10.0.0.1:30022" ];
+          id = private.syncthingServerId;
+          addresses = [ "tcp://${private.serverVpnIp}:22000" ];
         };
       };
       folders = {
@@ -29,6 +23,7 @@
         "Pictures" = {
           path = "/home/mieszko/Pictures";
           devices = [ "myServer" ];
+          ignorePatterns = [ "/Phone" ];
         };
         "Phone" = {
           path = "/home/mieszko/Pictures/Phone";
