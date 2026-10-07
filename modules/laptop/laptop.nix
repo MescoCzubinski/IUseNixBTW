@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     batsignal # signal when low battery
+    geteduroam # eduroam
   ];
 
   # microfon led lamp

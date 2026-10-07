@@ -31,11 +31,15 @@
     yaak
     docker
     skills
+    ollama
 
+    openssl
     kubectl
     kubeseal
     kubernetes-helm
 
+    unstablePkgs.antigravity-ide
+    unstablePkgs.antigravity-cli
     unstablePkgs.claude-code
     unstablePkgs.code-cursor
   ];
