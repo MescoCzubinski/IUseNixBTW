@@ -7,12 +7,15 @@
     affine
     onlyoffice-desktopeditors
     inputs.claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop-fhs
-    winboat
     miktex
 
     # graphic
     krita
     rnote
+
+    # media
+    audacity
+    vlc
 
     # communicator
     discord

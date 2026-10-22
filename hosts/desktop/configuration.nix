@@ -20,7 +20,6 @@
 
     ../../modules/clients/samba.nix
     ../../modules/clients/syncthing.nix
-    ../../modules/clients/network.nix
     ../../modules/clients/wireguard.nix
 
     ../../modules/games/steam.nix

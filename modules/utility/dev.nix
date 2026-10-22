@@ -24,6 +24,8 @@
       stdenv.cc.cc.lib
       zlib
       openssl
+      icu
+      krb5
     ];
   };
 
@@ -31,11 +33,18 @@
     yaak
     docker
     skills
+    ollama
+    gh
+    vscode
 
+    openssl
     kubectl
+    k0sctl
     kubeseal
     kubernetes-helm
 
+    unstablePkgs.antigravity-ide
+    unstablePkgs.antigravity-cli
     unstablePkgs.claude-code
     unstablePkgs.code-cursor
   ];
