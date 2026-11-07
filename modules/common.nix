@@ -9,18 +9,30 @@
       configurationLimit = 8;
       consoleMode = "max";
     };
-    timeout = 5;
+    timeout = 4;
     efi.canTouchEfiVariables = true;
   };
   boot.kernelPackages = pkgs.linuxPackages;
   boot.supportedFilesystems = [ "exfat" ];
-  nix.settings.auto-optimise-store = true;
+  boot.kernel.sysctl."kernel.split_lock_mitigate" = 0;
+  zramSwap.enable = true;
 
-  nix.gc = {
+
+  nix.optimise = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 5d";
+    dates = ["weekly"];
   };
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/mieszko/.nixos";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 5d --keep 5 --no-gcroots";
+    };
+  };
+
+  services.fwupd.enable = true;
 
   time.timeZone = "Europe/Warsaw";
   i18n.defaultLocale = "en_US.UTF-8";

@@ -35,10 +35,8 @@
     "nix-clean" = "sudo nix-collect-garbage -d";
     "nix-update" = "cd ~/.nixos && sudo nix flake update";
 
-    "nix-laptop" = "cd ~/.nixos && git add . && sudo nixos-rebuild switch --impure --flake .#laptop";
-    "nix-laptop-boot" = "cd ~/.nixos && git add . && sudo nixos-rebuild boot --impure --flake .#laptop";
-    "nix-desktop" = "cd ~/.nixos && git add . && sudo nixos-rebuild switch --impure --flake .#desktop";
-    "nix-desktop-boot" = "cd ~/.nixos && git add . && sudo nixos-rebuild boot --impure --flake .#desktop";
+    "nix-switch" = "cd ~/.nixos && git add . && nh os switch . -- --impure";
+    "nix-boot" = "cd ~/.nixos && git add . && nh os boot . -- --impure";
 
     "wg-start" = "sudo systemctl start wireguard-wg0.service";
     "wg-stop" = "sudo systemctl stop wireguard-wg0.service";

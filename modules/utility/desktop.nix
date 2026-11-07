@@ -16,6 +16,8 @@ in
   programs.hyprland.enable = true;
   security.pam.services.hyprlock = {};
 
+  programs.kdeconnect.enable = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -56,6 +58,13 @@ in
     }
   ];
 
+  # dark theme for Qt apps (VLC, KDE Connect)
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   environment.systemPackages = with pkgs; [
     # main
     hypridle # power management
@@ -74,7 +83,6 @@ in
 
     # management
     bluetui # bluetooth tui manager
-    impala # network tui manager
     brightnessctl # screen brightness controller
     playerctl # media controller (SUPER + space = pause/play)
     mako # notification daemon (popups + do-not-disturb)
@@ -87,9 +95,8 @@ in
     # theme & style
     fastfetch # fancy terminal info
     cmatrix # matrix effect
-    bibata-cursors # cursor theme
 
     wtype # type characters into focused window
-    jq # JSON processor (used by screen-rotation keybinds)
+    jq # JSON processor (used by focus-or-launch and lid switch keybinds)
   ];
 }

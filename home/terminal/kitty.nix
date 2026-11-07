@@ -18,6 +18,7 @@
       window_padding_width = "6 14";
       hide_window_decorations = "yes";
       confirm_os_window_close = "0";
+      remember_window_size = "no";
 
       cursor_shape = "beam";
       cursor_beam_thickness = "1.6";
@@ -79,9 +80,9 @@
     # font_features needs the same key repeated per font variant, which an
     # attrset can't express — kept as raw lines instead.
     extraConfig = ''
-      font_features FiraCode-Regular +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
-      font_features FiraCode-Bold    +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
-      font_features FiraCode-Retina  +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
+      font_features FiraCodeNF-Reg   +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
+      font_features FiraCodeNF-SemBd +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
+      font_features FiraCodeNF-Ret   +cv02 +ss08 +ss02 +ss03 +ss04 +ss05
     '';
 
     keybindings = {

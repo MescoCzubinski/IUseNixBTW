@@ -47,8 +47,6 @@
         set_color -b $abg $afg
         echo -n "$leaf"
         set_color normal
-        set_color $abg
-        set_color normal
         echo
 
         set_color $abg

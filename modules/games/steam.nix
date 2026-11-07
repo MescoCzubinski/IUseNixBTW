@@ -8,6 +8,7 @@
   };
 
   programs.gamemode.enable = true;
+  users.users.mieszko.extraGroups = [ "gamemode" ];
 
   environment.sessionVariables = {
     STEAM_FORCE_DESKTOPUI_SCALING = "1.5";

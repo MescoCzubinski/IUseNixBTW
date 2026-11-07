@@ -15,6 +15,9 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
+      auto_sync = false;
+      update_check = false;
+
       style = "compact";
       inline_height = 8;
       show_preview = false;

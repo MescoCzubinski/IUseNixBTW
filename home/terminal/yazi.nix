@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    (pkgs.writeScriptBin "batch-rename" (builtins.readFile ./rename.sh))
+    (pkgs.writeScriptBin "batch-rename" (builtins.readFile ../../scripts/rename.sh))
   ];
 
   home.file = {

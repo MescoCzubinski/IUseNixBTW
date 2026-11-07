@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  monitors = import ./monitors.nix;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -9,11 +12,7 @@
     configType = "hyprlang";
 
     settings = {
-      monitor = [
-        "HDMI-A-1, 3840x2160@30, -2560x0, 1.5"
-        "DP-1, 3840x2160@60, 0x0, 1.5"
-        "eDP-1, 1920x1080@60, 3200x0, 1"
-      ];
+      monitor = map (m: "${m.output}, ${m.mode}, ${m.position}, ${m.scale}") monitors;
 
       "$terminal" = "kitty";
       "$fileManager" = "kitty yazicd";
@@ -83,10 +82,20 @@
       misc = {
         force_default_wallpaper = 0;
         disable_hyprland_logo = true;
-        vrr = 1;
+        vrr = 2;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
+        allow_session_lock_restore = true;
+        middle_click_paste = false;
       };
+
+      render = {
+        direct_scanout = 2;
+      };
+
+      windowrule = [
+        "match:class ^(steam_app_.*)$, content game"
+      ];
 
       binds = {
         allow_workspace_cycles = "yes";
@@ -116,16 +125,6 @@
 
       gestures = {
         gesture = "3, horizontal, workspace";
-      };
-
-      cursor = {
-        no_hardware_cursors = true;
-        enable_hyprcursor = true;
-      };
-
-      device = {
-        name = "epic-mouse-v1";
-        sensitivity = -0.5;
       };
 
       bindr = [
@@ -201,6 +200,10 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
+      bindl = [
+        ", switch:on:Lid Switch, exec, [ $(hyprctl monitors -j | jq length) -eq 1 ] && loginctl lock-session"
+      ];
+
       bindel = [
         ",XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -211,18 +214,12 @@
       ];
 
       env = [
-        "HYPRCURSOR_THEME,Bibata-Modern-Ice"
-        "HYPRCURSOR_SIZE,24"
         "GTK_THEME,Adwaita-dark"
-        "COLOR_SCHEME,prefer-dark"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "GDK_BACKEND,wayland,x11"
         "QT_QPA_PLATFORM,wayland;xcb"
-        "XCURSOR_THEME,Bibata-Modern-Ice"
-        "XCURSOR_SIZE,24"
       ];
 
       "exec-once" = [
@@ -231,10 +228,7 @@
         "systemctl --user start vicinae.service"
         "udiskie &"
         "mako &"
-
-        "hyprctl setcursor Bibata-Modern-Ice 24"
-
-        "batsignal -w 15 -c 10 -d 5 -W 'Battery low' -C 'Battery critical!' -D 'Battery very low!'"
+        "kdeconnect-indicator &"
       ];
     };
   };

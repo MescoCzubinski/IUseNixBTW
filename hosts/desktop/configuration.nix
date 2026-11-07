@@ -9,6 +9,7 @@
     ../../modules/common.nix
     ../../modules/desktop/nvidia.nix
     ../../modules/desktop/logitech.nix
+    ../../modules/desktop/ollama.nix
 
     ../../modules/utility/services.nix
     ../../modules/utility/desktop.nix
@@ -20,7 +21,6 @@
 
     ../../modules/clients/samba.nix
     ../../modules/clients/syncthing.nix
-    ../../modules/clients/network.nix
     ../../modules/clients/wireguard.nix
 
     ../../modules/games/steam.nix

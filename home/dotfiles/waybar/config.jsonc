@@ -5,7 +5,7 @@
   "ipc": true,
   "exclusive": true,
   "passthrough": false,
-  "output": ["DP-1", "eDP-1"],
+  "output": ["eDP-1", "Iiyama North America PLG2888UH 0x01010101"],
   "height": 16,
   "margin-top": 8,
   "margin-bottom": 0,
@@ -15,11 +15,12 @@
 
   "modules-left": ["custom/nixos"],
   "modules-right": [
+    "custom/nosleep",
     "battery",
     "pulseaudio",
-    "pulseaudio#microphone",
-    "network",
     "bluetooth",
+    "network",
+    "pulseaudio#microphone",
     "hyprland/workspaces",
     "custom/dnd",
     "clock",
@@ -29,6 +30,7 @@
     "format": "",
     "tooltip": false,
   },
+
   "battery": {
     "states": {
       "warning": 30,
@@ -84,8 +86,16 @@
     "tooltip": false,
   },
 
+  "custom/nosleep": {
+    "format": "󰒳",
+    "exec": "systemctl --user is-active -q nosleep && echo on",
+    "interval": "once",
+    "signal": 9,
+    "tooltip": false,
+  },
+
   "clock": {
-    "interval": 1,
+    "interval": 60,
     "format": "{:%a, %b %d  %H:%M}",
     "tooltip": false,
   },
