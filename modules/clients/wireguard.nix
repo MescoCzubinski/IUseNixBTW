@@ -27,6 +27,7 @@ in
           publicKey = private.wgPeerKey;
           allowedIPs = [ "192.168.0.0/24" ];
           endpoint = host.endpoint;
+          dynamicEndpointRefreshSeconds = 300;
           persistentKeepalive = 25;
         }
       ];

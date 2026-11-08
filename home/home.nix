@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./terminal/fish.nix # fish shell + prompt
     ./terminal/atuin.nix # shell history
+    ./terminal/zoxide.nix # smarter cd (z)
     ./terminal/kitty.nix # kitty terminal
     ./terminal/yazi.nix # yazi file manager + file picker
     ./hyprland/hyprland.nix # hyprland compositor
@@ -22,8 +23,18 @@
     ".config/vicinae/settings.json".source = ./dotfiles/vicinae/settings.json;
     ".config/mako".source = ./dotfiles/mako;
     ".config/waybar".source = ./dotfiles/waybar;
-    ".icons/default".source = "${pkgs.bibata-cursors}/share/icons/Bibata-Modern-Ice";
+    ".agents/skills".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/skills";
+    ".agents/.skill-lock.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.claude/skills/.skill-lock.json";
   };
+
+  # cursor for Hyprland, XWayland and Qt apps
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
+
+  services.hyprpolkitagent.enable = true;
 
   programs.home-manager.enable = true;
 }

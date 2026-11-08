@@ -27,10 +27,10 @@ My NixOS config for two machines, a **laptop** and a **desktop**. It's a single 
 ├── modules/               # NixOS (system-level) modules
 │   ├── common.nix         # shared by every host: boot, nix settings, GC, locale
 │   ├── utility/           # desktop, services, shell, apps, dev tools, login screen
-│   ├── clients/           # home server clients: WireGuard, Samba, Syncthing, local DNS
-│   ├── desktop/           # desktop-only: NVIDIA, Logitech
-│   ├── laptop/            # laptop-only: TLP, battery alerts, mic-mute LED
-│   ├── games/             # Steam (+ Proton-GE), Heroic
+│   ├── clients/           # home server clients: WireGuard, Samba, Syncthing
+│   ├── desktop/           # desktop-only: NVIDIA, Logitech, Ollama
+│   ├── laptop/            # laptop-only: TLP, thermald, battery alerts, idle/suspend, fingerprint, nosleep, mic-mute LED
+│   ├── games/             # Steam (+ Proton-GE, MangoHud, gamescope), GameMode, Heroic
 │   └── users/             # user account
 └── home/                  # Home Manager (user-level) config
     ├── home.nix           # entry point, links raw dotfiles into ~/.config

@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+# batch-rename <dir>               rename files to <dir_name>_001.<ext>
+# batch-rename <dir> --with_time   files starting with YYYYMMDD -> YYYY_MM_DD_<dir_name>_001.<ext>
 
 if [ -z "$1" ]; then
     echo "Usage: $0 <directory> [--with_time]"
@@ -26,20 +29,28 @@ done
 width=$((${#count} + 1))
 [ "$width" -lt 3 ] && width=3
 
+tmp=".batch-rename.$$"
+olds=()
+news=()
 n=1
 for file in *; do
     [ -f "$file" ] || continue
 
     ext="${file##*.}"
 
-    if [ "$use_time" -eq 1 ] && [[ "$file" =~ ^([0-9]{8}) ]]; then
-        date="${BASH_REMATCH[1]}"
-        date="${date:0:4}_${date:4:2}_${date:6:2}"
+    if [ "$use_time" -eq 1 ] && [[ "$file" =~ ^([0-9]{4})_?([0-9]{2})_?([0-9]{2}) ]]; then
+        date="${BASH_REMATCH[1]}_${BASH_REMATCH[2]}_${BASH_REMATCH[3]}"
         printf -v newname "%s_%s_%0*d.%s" "$date" "$prefix" "$width" "$n" "$ext"
     else
         printf -v newname "%s_%0*d.%s" "$prefix" "$width" "$n" "$ext"
     fi
 
-    mv -- "$file" "$newname"
+    mv -- "$file" "$tmp.$n" || exit 1
+    olds+=("$tmp.$n")
+    news+=("$newname")
     n=$((n + 1))
+done
+
+for i in "${!olds[@]}"; do
+    mv -n -- "${olds[$i]}" "${news[$i]}"
 done
