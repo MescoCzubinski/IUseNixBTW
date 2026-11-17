@@ -9,18 +9,18 @@
     ../../modules/common.nix
     ../../modules/desktop/nvidia.nix
     ../../modules/desktop/logitech.nix
+    ../../modules/desktop/ollama.nix
 
     ../../modules/utility/services.nix
     ../../modules/utility/desktop.nix
     ../../modules/utility/session_manager.nix
     ../../modules/utility/shell.nix
-    ../../modules/utility/shell_aliases.nix
+    ../../modules/utility/commands.nix
     ../../modules/utility/apps.nix
     ../../modules/utility/dev.nix
 
     ../../modules/clients/samba.nix
     ../../modules/clients/syncthing.nix
-    ../../modules/clients/network.nix
     ../../modules/clients/wireguard.nix
 
     ../../modules/games/steam.nix

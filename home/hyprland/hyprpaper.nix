@@ -1,23 +1,20 @@
 { ... }:
 
+let
+  monitors = import ./monitors.nix;
+in
 {
   services.hyprpaper = {
     enable = true;
 
     settings = {
-      wallpaper = [
+      wallpaper = map (m: {
+        monitor = m.output;
+        path = "${m.wallpaper}";
+        fit_mode = "cover";
+      }) monitors ++ [
         {
-          monitor = "DP-1";
-          path = "${../wallpapers/wallpaper_main.png}";
-          fit_mode = "cover";
-        }
-        {
-          monitor = "HDMI-A-1";
-          path = "${../wallpapers/wallpaper_left.png}";
-          fit_mode = "cover";
-        }
-        {
-          monitor = "eDP-1";
+          monitor = "*";
           path = "${../wallpapers/wallpaper_laptop.png}";
           fit_mode = "cover";
         }

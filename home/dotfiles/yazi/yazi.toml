@@ -21,7 +21,7 @@ browser = [
   { run = 'zen-beta "$@"', desc = "Zen", orphan = true, block = false },
 ]
 office = [
-  { run = 'onlyoffice-desktopeditors "$@"', desc = "OnlyOffice", orphan = true, block = false },
+  { run = 'setsid -f onlyoffice-desktopeditors "$@" >/dev/null 2>&1', desc = "OnlyOffice", orphan = true, block = false },
 ]
 text = [
   { run = 'nano "$@"', desc = "Nano", block = true },
@@ -34,6 +34,8 @@ prepend_rules = [
   { mime = "video/*",          use = "browser" },
   { mime = "audio/*",          use = "browser" },
   { mime = "application/pdf",  use = "browser" },
+  { url  = "*.html",           use = "browser" },
+  { url  = "*.htm",            use = "browser" },
   { url  = "*.xlsx",           use = "office" },
   { url  = "*.xls",            use = "office" },
   { url  = "*.docx",           use = "office" },

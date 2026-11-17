@@ -65,7 +65,9 @@ window#waybar {
   color: rgba(0, 0, 0, 0.35);
 }
 
-#custom-dnd {
+#custom-dnd,
+#custom-pomodoro,
+#custom-nosleep {
   font-size: 12px;
   padding: 0 8px;
   color: rgba(0, 0, 0, 0.82);
@@ -77,4 +79,8 @@ window#waybar {
   color: rgba(0, 0, 0, 0.82);
   letter-spacing: 0.01em;
   padding: 0 7px;
+}
+
+#custom-pomodoro.idle {
+  font-size: 17px;
 }

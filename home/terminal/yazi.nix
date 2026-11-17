@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    (pkgs.writeScriptBin "batch-rename" (builtins.readFile ./rename.sh))
-  ];
-
   home.file = {
     ".config/yazi".source = ../dotfiles/yazi;
     ".config/xdg-desktop-portal-termfilechooser/config".text = ''

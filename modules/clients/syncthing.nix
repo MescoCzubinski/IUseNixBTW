@@ -12,6 +12,7 @@
       options = {
         globalAnnounceEnabled = false;
         relaysEnabled = false;
+        natEnabled = false;
       };
       devices = {
         "myServer" = {

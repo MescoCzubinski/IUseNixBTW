@@ -1,39 +1,29 @@
 { ... }:
 
+let
+  monitors = import ./monitors.nix;
+in
 {
   programs.hyprlock = {
     enable = true;
 
     settings = {
-      background = [
+      background = map (m: {
+        monitor = m.output;
+        path = "${m.wallpaper}";
+        color = "rgba(16, 16, 16, 1.0)";
+        blur_passes = 2;
+        blur_size = 4;
+      }) monitors ++ [
         {
-          monitor = "DP-1";
-          path = "${../wallpapers/wallpaper_main.png}";
-          color = "rgba(16, 16, 16, 1.0)";
-          blur_passes = 2;
-          blur_size = 4;
-        }
-        {
-          monitor = "HDMI-A-1";
-          path = "${../wallpapers/wallpaper_left.png}";
-          color = "rgba(16, 16, 16, 1.0)";
-          blur_passes = 2;
-          blur_size = 4;
-        }
-        {
-          monitor = "eDP-1";
+          monitor = "";
           path = "${../wallpapers/wallpaper_laptop.png}";
           color = "rgba(16, 16, 16, 1.0)";
           blur_passes = 2;
           blur_size = 4;
+          zindex = -2;
         }
       ];
-
-      general = {
-        no_fade_in = false;
-        grace = 0;
-        disable_loading_bar = true;
-      };
 
       label = [
         {
