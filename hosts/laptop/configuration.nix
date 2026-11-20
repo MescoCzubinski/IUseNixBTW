@@ -16,6 +16,7 @@
     ../../modules/utility/commands.nix
     ../../modules/utility/apps.nix
     ../../modules/utility/dev.nix
+    ../../modules/utility/claude.nix
 
     ../../modules/clients/samba.nix
     ../../modules/clients/syncthing.nix

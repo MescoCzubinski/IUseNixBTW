@@ -19,6 +19,7 @@
       hide_window_decorations = "yes";
       confirm_os_window_close = "0";
       remember_window_size = "no";
+      notify_on_cmd_finish = "unfocused 15";
 
       cursor_shape = "beam";
       cursor_beam_thickness = "1.6";

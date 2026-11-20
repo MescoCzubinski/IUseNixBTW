@@ -21,18 +21,6 @@
     };
   };
 
-  # claude-code
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      stdenv.cc.cc.lib
-      zlib
-      openssl
-      icu
-      krb5
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     yaak
     docker
@@ -43,12 +31,6 @@
     typescript-language-server
     gh
     opencode
-    (vscode.overrideAttrs (old: {
-      postPatch = builtins.replaceStrings
-        [ "resources/app/node_modules/@vscode/ripgrep/bin/rg" ]
-        [ "resources/app/node_modules.asar.unpacked/@vscode/ripgrep-universal/bin/linux-x64/rg" ]
-        old.postPatch;
-    }))
 
     openssl
     kubectl
@@ -59,8 +41,8 @@
 
     unstablePkgs.antigravity-ide
     unstablePkgs.antigravity-cli
-    unstablePkgs.claude-code
     unstablePkgs.code-cursor
+    unstablePkgs.vscode
   ];
 
   home-manager.users.mieszko = {

@@ -28,6 +28,7 @@
       '';
 
       fish_prompt = ''
+        set -l last_status $status
         echo
         set -l abg e2e2e2
         set -l afg 101010
@@ -47,9 +48,16 @@
         set_color -b $abg $afg
         echo -n "$leaf"
         set_color normal
+        set_color 8a8a8e
+        echo -n (fish_vcs_prompt " %s")
+        set_color normal
         echo
 
-        set_color $abg
+        if test $last_status -ne 0
+            set_color ff5a5f
+        else
+            set_color $abg
+        end
         echo -n '> '
         set_color normal
       '';

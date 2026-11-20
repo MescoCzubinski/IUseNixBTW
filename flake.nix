@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # No nixpkgs follows: upstream warns it breaks on stable branches, and
+    # only its own pinned nixpkgs gets hits from cache.numtide.com.
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {

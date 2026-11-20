@@ -13,8 +13,8 @@
     "cd." = "cd ..";
     "cd.." = "cd ..";
 
-    "findd" = "find . -type d -name";
-    "findf" = "find . -type f -name";
+    "findd" = "fd -t d";
+    "findf" = "fd -t f";
 
     "img" = "chafa";
     "open" = "zen-beta";

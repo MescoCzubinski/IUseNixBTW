@@ -79,6 +79,8 @@ in
     yazi # file manager
     yaziCd
     btop # monitor of resources
+    bat # cat replacement
+    fd # find replacement
 
 
     # management
